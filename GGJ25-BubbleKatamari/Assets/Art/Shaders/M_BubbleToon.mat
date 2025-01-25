@@ -123,6 +123,7 @@ Material:
     - _OultineSize: 0.25
     - _OutlineFade: 1
     - _Parallax: 0.005
+    - _PearlHueSpeed: 30
     - _PearlScale: 5
     - _PearlStrength: 0.35
     - _QueueControl: 0
@@ -132,17 +133,20 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _SpecularStrength: 0.99
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _TransperancyStrength: 5
-    - _WobbleSpeed: 0.1
+    - _WobbleSize: 1
+    - _WobbleSpeed: 0.4
+    - _WobbleStrength: 0.05
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorMain: {r: 0.92543983, g: 0, b: 1, a: 0}
+    - _ColorMain: {r: 0.29194534, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
