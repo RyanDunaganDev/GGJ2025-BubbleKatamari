@@ -47,6 +47,9 @@
         },
         {
             "m_Id": "a996bb76577e40d3852763cc5933dd69"
+        },
+        {
+            "m_Id": "1fecdb1fd9c149208f2589840a20fbf9"
         }
     ],
     "m_Keywords": [],
@@ -2171,8 +2174,8 @@
     "m_ObjectId": "1f004d4c63eb483592c858554698e973",
     "m_Title": "Alpha",
     "m_Position": {
-        "x": -3536.800048828125,
-        "y": 787.199951171875
+        "x": -3536.7998046875,
+        "y": 787.2000732421875
     }
 }
 
@@ -2193,6 +2196,34 @@
         "w": 0.0
     },
     "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector4ShaderProperty",
+    "m_ObjectId": "1fecdb1fd9c149208f2589840a20fbf9",
+    "m_Guid": {
+        "m_GuidSerialized": "8ca62a82-442e-4e0c-b447-077bc99e3baf"
+    },
+    "m_Name": "ObjectRotation",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "ObjectRotation",
+    "m_DefaultReferenceName": "_ObjectRotation",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
         "x": 0.0,
         "y": 0.0,
         "z": 0.0,
@@ -2998,6 +3029,9 @@
         },
         {
             "m_Id": "a996bb76577e40d3852763cc5933dd69"
+        },
+        {
+            "m_Id": "1fecdb1fd9c149208f2589840a20fbf9"
         }
     ]
 }
@@ -3146,10 +3180,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -4997.599609375,
-            "y": -2124.800048828125,
-            "width": 208.0,
-            "height": 312.7999267578125
+            "x": -5040.79931640625,
+            "y": -2117.60009765625,
+            "width": 207.99951171875,
+            "height": 312.800048828125
         }
     },
     "m_Slots": [
@@ -3786,8 +3820,8 @@
     "m_ObjectId": "54a50ff1cb4b410e8844afca0d00b3f0",
     "m_Title": "Wobble",
     "m_Position": {
-        "x": -616.8001098632813,
-        "y": -368.800048828125
+        "x": -616.80029296875,
+        "y": -368.79998779296877
     }
 }
 
@@ -4106,10 +4140,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -379.20001220703127,
-            "y": -308.8000183105469,
-            "width": 249.60008239746095,
-            "height": 326.39996337890627
+            "x": -387.9999694824219,
+            "y": -308.7999572753906,
+            "width": 250.39999389648438,
+            "height": 326.3999938964844
         }
     },
     "m_Slots": [
@@ -6178,7 +6212,7 @@
     "m_ObjectId": "b174bae3c0f64f6287cb01ac20f83f8a",
     "m_Title": "Blinn-Phong Specular",
     "m_Position": {
-        "x": -5023.19921875,
+        "x": -5066.39990234375,
         "y": -2196.0
     }
 }
@@ -7051,7 +7085,7 @@
     "m_Title": "Outline",
     "m_Position": {
         "x": -2268.000244140625,
-        "y": 69.5999526977539
+        "y": 69.5999755859375
     }
 }
 
@@ -7189,7 +7223,7 @@
     "m_Title": "Pearlescent",
     "m_Position": {
         "x": -4648.00048828125,
-        "y": -856.8001098632813
+        "y": -856.800048828125
     }
 }
 
