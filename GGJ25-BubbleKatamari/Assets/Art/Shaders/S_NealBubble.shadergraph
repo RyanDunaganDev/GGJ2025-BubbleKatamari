@@ -101,6 +101,9 @@
         },
         {
             "m_Id": "1ee34632e6904197b83d68f5987420e2"
+        },
+        {
+            "m_Id": "4935e14dbd494496aee7e5c2f282853c"
         }
     ],
     "m_GroupDatas": [],
@@ -144,6 +147,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "682cfea31e804be881f4a1f47e150c7a"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "4935e14dbd494496aee7e5c2f282853c"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "6fd9f983d4934c9ca381e5370c5ae7ad"
                 },
                 "m_SlotId": 0
             }
@@ -584,10 +601,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1344.92138671875,
-            "y": 109.67646026611328,
-            "width": 0.0,
-            "height": 0.0
+            "x": -1543.2000732421875,
+            "y": 244.0,
+            "width": 147.2000732421875,
+            "height": 33.5999755859375
         }
     },
     "m_Slots": [
@@ -996,6 +1013,42 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "VertexDescription.Tangent"
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.ViewDirectionNode",
+    "m_ObjectId": "4935e14dbd494496aee7e5c2f282853c",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "View Direction",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -2709.599853515625,
+            "y": -270.3999938964844,
+            "width": 208.0,
+            "height": 312.7999267578125
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "ffc751e785b8419988487b3d1ae4b598"
+        }
+    ],
+    "synonyms": [
+        "eye direction"
+    ],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 2,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Space": 2
 }
 
 {
@@ -2556,5 +2609,28 @@
         "z": 0.0,
         "w": 0.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
+    "m_ObjectId": "ffc751e785b8419988487b3d1ae4b598",
+    "m_Id": 0,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": []
 }
 
