@@ -29,7 +29,9 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private float jetSPEED = 60f;
     private bool isBoosting = false;                            // Indicates whether you are boosting or not
     private bool isJetting = false;                             // Indicates if the player is cooking with GAS
+    private bool readyToJet = true;
     [SerializeField] private float moveSpeedChangeRate = 10f;   // The rate per second that the move speed updates to new targets
+    [SerializeField] private float jetCooldown = 3f;
 
     [Header("Player - Air Movement")]
     [SerializeField] private float airControlMultiplier = 0.4f; // The multiplier used to affect the amount of control you have in the air
@@ -253,6 +255,12 @@ public class BK_BubbleCharacter : MonoBehaviour
     /// </summary>
     private void LimitVelocity()
     {
+        //Check if the player is goin' absolutely Crazy rn (on god)
+        if (isJetting)
+        {
+            return;
+        }
+
         // Limit Horizontal Velocity
         // If our current velocity is greater than our maximum allowed velocity...
         Vector3 currentVelocity = GetHorizontalRBVelocity();
@@ -345,8 +353,32 @@ public class BK_BubbleCharacter : MonoBehaviour
     public void StartJet()
     {
 
-        //Check if the player is goin' absolutely Crazy rn (on god)
-        rigidbody.AddExplosionForce(jetSPEED, cameraTransform.position, Vector3.Distance(transform.position, cameraTransform.position));
+        // If we're ready to jump (cooldown) and we're either on the ground or still have more jumps we can perform
+        if (readyToJet)
+        {
+
+            isJetting = true;
+            rigidbody.AddForce((transform.position - cameraTransform.position).normalized * jetSPEED, ForceMode.VelocityChange);
+
+            //Start our jet cooldown
+            readyToJet = false;
+            StartCoroutine(JetCooldownCoroutine());
+        }
+
+
+    }
+    private IEnumerator JetCooldownCoroutine()
+    {
+        yield return new WaitForSeconds(jetCooldown / 2);
+        if (isGrounded)
+        {
+            isJetting = false;
+        }
+        yield return new WaitForSeconds(jetCooldown / 2);
+        if (isGrounded)
+        {
+            readyToJet = true;
+        }
     }
 
     private IEnumerator UpateMaxSpeed(float newSpeedTarget)
@@ -393,8 +425,8 @@ public class BK_BubbleCharacter : MonoBehaviour
         // We became grounded this frame
         if (!wasGroundedLastFrame && isGrounded)
         {
-            //// Reset jumps when we hit the ground
-            //currentJump = 0;
+            isJetting = false;
+            readyToJet = true;
         }
         // We became airborne this frame
         else if (wasGroundedLastFrame && !isGrounded)
