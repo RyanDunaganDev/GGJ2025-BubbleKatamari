@@ -125,6 +125,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugSize"",
+                    ""type"": ""Value"",
+                    ""id"": ""43d40a4b-c97c-446e-b59a-cee535b019ac"",
+                    ""expectedControlType"": ""Double"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -565,6 +574,105 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Unused2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7695f901-fe01-4dcf-a124-a836cf54bb5e"",
+                    ""path"": ""<Keyboard>/numpad1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d18aa7f-d214-49b2-9b25-9b2ff07743e2"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""627ab9b1-b3ae-45c0-b3e1-143830d14206"",
+                    ""path"": ""<Keyboard>/numpad3"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=3)"",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""467a262a-3a33-406e-9c1c-d78fa2a75cbe"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=4)"",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40a9ccb8-553e-4009-a771-9798ac104cb1"",
+                    ""path"": ""<Keyboard>/numpad5"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=5)"",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ea6b16c-aa0d-45ea-bf1f-e00c99342e24"",
+                    ""path"": ""<Keyboard>/numpad6"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=6)"",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f9c96a2-2f72-4262-b056-0772f1174d3c"",
+                    ""path"": ""<Keyboard>/numpad7"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=7)"",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8487d2d-dc37-4096-8739-e8f403a64a8c"",
+                    ""path"": ""<Keyboard>/numpad8"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=8)"",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""670820d1-201d-415c-b592-55dbc2204968"",
+                    ""path"": ""<Keyboard>/numpad9"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=9)"",
+                    ""groups"": """",
+                    ""action"": ""DebugSize"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1194,6 +1302,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Unused4 = m_Player.FindAction("Unused4", throwIfNotFound: true);
         m_Player_Unused5 = m_Player.FindAction("Unused5", throwIfNotFound: true);
         m_Player_Unused6 = m_Player.FindAction("Unused6", throwIfNotFound: true);
+        m_Player_DebugSize = m_Player.FindAction("DebugSize", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1285,6 +1394,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Unused4;
     private readonly InputAction m_Player_Unused5;
     private readonly InputAction m_Player_Unused6;
+    private readonly InputAction m_Player_DebugSize;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1300,6 +1410,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Unused4 => m_Wrapper.m_Player_Unused4;
         public InputAction @Unused5 => m_Wrapper.m_Player_Unused5;
         public InputAction @Unused6 => m_Wrapper.m_Player_Unused6;
+        public InputAction @DebugSize => m_Wrapper.m_Player_DebugSize;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1342,6 +1453,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Unused6.started += instance.OnUnused6;
             @Unused6.performed += instance.OnUnused6;
             @Unused6.canceled += instance.OnUnused6;
+            @DebugSize.started += instance.OnDebugSize;
+            @DebugSize.performed += instance.OnDebugSize;
+            @DebugSize.canceled += instance.OnDebugSize;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1379,6 +1493,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Unused6.started -= instance.OnUnused6;
             @Unused6.performed -= instance.OnUnused6;
             @Unused6.canceled -= instance.OnUnused6;
+            @DebugSize.started -= instance.OnDebugSize;
+            @DebugSize.performed -= instance.OnDebugSize;
+            @DebugSize.canceled -= instance.OnDebugSize;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1580,6 +1697,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnUnused4(InputAction.CallbackContext context);
         void OnUnused5(InputAction.CallbackContext context);
         void OnUnused6(InputAction.CallbackContext context);
+        void OnDebugSize(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
