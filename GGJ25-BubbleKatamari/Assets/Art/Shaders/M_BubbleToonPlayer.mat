@@ -142,7 +142,7 @@ Material:
     - _Smooth: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _Spec1Strength: 0.01
+    - _Spec1Strength: 0
     - _Spec2Rotate: 41.6
     - _Spec2Strength: 0.998
     - _SpecRotate: 0
