@@ -74,7 +74,13 @@ public class BK_BubbleController : MonoBehaviour
 
         playerInputActions.Player.TogglePause.performed += TogglePauseActionPerformed;
         playerInputActions.UI.TogglePause.performed += TogglePauseActionPerformed;
+
+        playerInputActions.Player.Jet.performed += JetPreformed;
+
     }
+
+
+    
 
     private void UnsubscribeInputActions()
     {
@@ -89,6 +95,8 @@ public class BK_BubbleController : MonoBehaviour
 
         playerInputActions.Player.TogglePause.performed -= TogglePauseActionPerformed;
         playerInputActions.UI.TogglePause.performed -= TogglePauseActionPerformed;
+
+        playerInputActions.Player.Jet.performed -= JetPreformed;
     }
 
     /// <summary>
@@ -162,6 +170,10 @@ public class BK_BubbleController : MonoBehaviour
         Debug.Log("The player is trying to pause/unpause!");
 
         BK_GameManager.Instance.TogglePause();
+    }
+    private void JetPreformed(InputAction.CallbackContext obj)
+    {
+        bubbleMovement.StartJet();
     }
 
     #endregion

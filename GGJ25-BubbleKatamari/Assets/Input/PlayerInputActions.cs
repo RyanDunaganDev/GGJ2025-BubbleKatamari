@@ -82,12 +82,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Unused3"",
+                    ""name"": ""Jet"",
                     ""type"": ""Button"",
                     ""id"": ""f1ba0d36-48eb-4cd5-b651-1c94a6531f70"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -421,7 +421,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Unused3"",
+                    ""action"": ""Jet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -432,7 +432,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Unused3"",
+                    ""action"": ""Jet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -443,7 +443,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""XR"",
-                    ""action"": ""Unused3"",
+                    ""action"": ""Jet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1189,7 +1189,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_TogglePause = m_Player.FindAction("TogglePause", throwIfNotFound: true);
         m_Player_Unused1 = m_Player.FindAction("Unused1", throwIfNotFound: true);
         m_Player_Unused2 = m_Player.FindAction("Unused2", throwIfNotFound: true);
-        m_Player_Unused3 = m_Player.FindAction("Unused3", throwIfNotFound: true);
+        m_Player_Jet = m_Player.FindAction("Jet", throwIfNotFound: true);
         m_Player_Unused7 = m_Player.FindAction("Unused7", throwIfNotFound: true);
         m_Player_Unused4 = m_Player.FindAction("Unused4", throwIfNotFound: true);
         m_Player_Unused5 = m_Player.FindAction("Unused5", throwIfNotFound: true);
@@ -1280,7 +1280,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_TogglePause;
     private readonly InputAction m_Player_Unused1;
     private readonly InputAction m_Player_Unused2;
-    private readonly InputAction m_Player_Unused3;
+    private readonly InputAction m_Player_Jet;
     private readonly InputAction m_Player_Unused7;
     private readonly InputAction m_Player_Unused4;
     private readonly InputAction m_Player_Unused5;
@@ -1295,7 +1295,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @TogglePause => m_Wrapper.m_Player_TogglePause;
         public InputAction @Unused1 => m_Wrapper.m_Player_Unused1;
         public InputAction @Unused2 => m_Wrapper.m_Player_Unused2;
-        public InputAction @Unused3 => m_Wrapper.m_Player_Unused3;
+        public InputAction @Jet => m_Wrapper.m_Player_Jet;
         public InputAction @Unused7 => m_Wrapper.m_Player_Unused7;
         public InputAction @Unused4 => m_Wrapper.m_Player_Unused4;
         public InputAction @Unused5 => m_Wrapper.m_Player_Unused5;
@@ -1327,9 +1327,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Unused2.started += instance.OnUnused2;
             @Unused2.performed += instance.OnUnused2;
             @Unused2.canceled += instance.OnUnused2;
-            @Unused3.started += instance.OnUnused3;
-            @Unused3.performed += instance.OnUnused3;
-            @Unused3.canceled += instance.OnUnused3;
+            @Jet.started += instance.OnJet;
+            @Jet.performed += instance.OnJet;
+            @Jet.canceled += instance.OnJet;
             @Unused7.started += instance.OnUnused7;
             @Unused7.performed += instance.OnUnused7;
             @Unused7.canceled += instance.OnUnused7;
@@ -1364,9 +1364,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Unused2.started -= instance.OnUnused2;
             @Unused2.performed -= instance.OnUnused2;
             @Unused2.canceled -= instance.OnUnused2;
-            @Unused3.started -= instance.OnUnused3;
-            @Unused3.performed -= instance.OnUnused3;
-            @Unused3.canceled -= instance.OnUnused3;
+            @Jet.started -= instance.OnJet;
+            @Jet.performed -= instance.OnJet;
+            @Jet.canceled -= instance.OnJet;
             @Unused7.started -= instance.OnUnused7;
             @Unused7.performed -= instance.OnUnused7;
             @Unused7.canceled -= instance.OnUnused7;
@@ -1575,7 +1575,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnTogglePause(InputAction.CallbackContext context);
         void OnUnused1(InputAction.CallbackContext context);
         void OnUnused2(InputAction.CallbackContext context);
-        void OnUnused3(InputAction.CallbackContext context);
+        void OnJet(InputAction.CallbackContext context);
         void OnUnused7(InputAction.CallbackContext context);
         void OnUnused4(InputAction.CallbackContext context);
         void OnUnused5(InputAction.CallbackContext context);

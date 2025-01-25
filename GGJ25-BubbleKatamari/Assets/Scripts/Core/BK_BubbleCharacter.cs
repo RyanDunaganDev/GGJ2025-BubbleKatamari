@@ -26,7 +26,9 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private float maxRollSpeed = 4f;           // The max horizontal speed of this character (when moving) in m/s
     [SerializeField] private float maxBoostSpeed = 7f;          // The max horizontal speed of this character (when boosting) in m/s
     [SerializeField] private float maxVerticalSpeed = 10f;      // The maximum vertical move speed of this character in m/s
+    [SerializeField] private float jetSPEED = 60f;
     private bool isBoosting = false;                            // Indicates whether you are boosting or not
+    private bool isJetting = false;                             // Indicates if the player is cooking with GAS
     [SerializeField] private float moveSpeedChangeRate = 10f;   // The rate per second that the move speed updates to new targets
 
     [Header("Player - Air Movement")]
@@ -336,6 +338,15 @@ public class BK_BubbleCharacter : MonoBehaviour
         isBoosting = false;
 
         StartCoroutine(UpateMaxSpeed(maxRollSpeed));
+    }
+    /// <summary>
+    /// Tell the CharacterMovement to begin Jet!
+    /// </summary>
+    public void StartJet()
+    {
+
+        //Check if the player is goin' absolutely Crazy rn (on god)
+        rigidbody.AddExplosionForce(jetSPEED, cameraTransform.position, Vector3.Distance(transform.position, cameraTransform.position));
     }
 
     private IEnumerator UpateMaxSpeed(float newSpeedTarget)
