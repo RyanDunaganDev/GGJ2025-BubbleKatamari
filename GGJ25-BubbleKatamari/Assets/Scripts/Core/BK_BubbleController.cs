@@ -13,7 +13,6 @@ public class BK_BubbleController : MonoBehaviour
 
     [Header("Component / Object References")]
     [SerializeField] private BK_BubbleCharacter bubbleMovement;
-    [SerializeField] private BK_CameraController bubbleCamera;
 
     #endregion
 
@@ -155,14 +154,14 @@ public class BK_BubbleController : MonoBehaviour
 
     private void BoostActionPerformed(InputAction.CallbackContext context)
     {
-        Debug.Log("The player is trying to Boost!");
+        //Debug.Log("The player is trying to Boost!");
 
         bubbleMovement.StartBoosting();
     }
 
     private void BoostActionCanceled(InputAction.CallbackContext context)
     {
-        Debug.Log("The player is trying to Stop Boosting!");
+        //Debug.Log("The player is trying to Stop Boosting!");
 
         bubbleMovement.StopBoosting();
     }
@@ -181,8 +180,7 @@ public class BK_BubbleController : MonoBehaviour
     private void DebugSize(InputAction.CallbackContext context)
     {
         float amount = context.ReadValue<float>();
-        bubbleMovement.IncreaseSize(amount);
-        bubbleCamera.IncreaseCameraRadius(amount);
+        bubbleMovement.IncreaseScaleFactor(amount);
     }
 
     #endregion
