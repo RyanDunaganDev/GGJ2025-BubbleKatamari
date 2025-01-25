@@ -64,17 +64,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMaxSpeed: 4
-  jumpForce: 6
   accelerationRate: 60
   decelerationRate: 12
-  maxWalkSpeed: 1
-  maxSprintSpeed: 4
+  maxRollSpeed: 4
+  maxBoostSpeed: 7
   maxVerticalSpeed: 10
   airControlMultiplier: 0.4
   groundCheckDistance: 0.1
   environmentLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  shouldHandleWallStick: 1
+  showWallStickDebug: 0
+  wallStickFrameLookahead: 1
+  minWallAngle: 45
   animator: {fileID: 5285917225937711522}
   sphereCollider: {fileID: 5849393289448097258}
   rigidbody: {fileID: 7658202408237871931}
@@ -126,9 +129,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &5285917225937711522
 Animator:
   serializedVersion: 7
