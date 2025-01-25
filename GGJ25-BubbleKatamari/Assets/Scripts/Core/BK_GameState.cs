@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -11,8 +12,10 @@ public class BK_GameState : MonoBehaviour
 
     // Represents whether or not the game is paused or not
     private bool isPaused = false;
-
     public bool IsPaused { get { return isPaused; } }
+
+    private float gameScore = 0f;
+    private float gameTime = 0.1f;
 
     // The name of the Main Menu scene, so we know if we loaded into it
     [SerializeField] private string mainMenuSceneName = "MainMenu";
@@ -25,6 +28,8 @@ public class BK_GameState : MonoBehaviour
     public UnityEvent OnGamePlaying;
     public UnityEvent OnPlayerWon;
     public UnityEvent OnPlayerLost;
+
+    public UnityEvent OnTimeExpired;
 
     // Static (global) reference to the single existing instance of the object
     private static BK_GameState _instance = null;
@@ -125,19 +130,42 @@ public class BK_GameState : MonoBehaviour
         return true;
     }
 
+    public void DeltaGameScore(float scoreDelta)
+    {
+        gameScore += scoreDelta;
+        Debug.Log($"Game score: {gameScore}");
+    }
+
+    public void TickTimer(float deltaTimer)
+    {
+        gameTime += deltaTimer;
+        //Debug.Log($"Game time: {gameTime}");
+
+
+        if (gameTime <= 0f)
+        {
+            gameTime = 0f;
+
+            OnTimeExpired?.Invoke();
+        }
+    }
+
     public void ResetGameState()
     {
         //Debug.Log("Resetting Game State!");
 
-        // Default to Paused Status
+        // Default to InProgress Status and not paused
         CurrentGameStatus = GameStatus.InProgress;
-        isPaused = true;
+        isPaused = false;
+        Time.timeScale = 1f;
 
         // Clear all events
         OnGamePaused.RemoveAllListeners();
         OnGameResumed.RemoveAllListeners();
+        OnGamePlaying.RemoveAllListeners();
         OnPlayerWon.RemoveAllListeners();
         OnPlayerLost.RemoveAllListeners();
+        OnTimeExpired.RemoveAllListeners();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
