@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleMovement: {fileID: 7103081082971243499}
-  bubbleCamera: {fileID: 0}
 --- !u!114 &7103081082971243499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,12 +84,15 @@ MonoBehaviour:
   showWallStickDebug: 0
   wallStickFrameLookahead: 1
   minWallAngle: 45
+  scaleChangeTime: 1
+  scaleChangeRate: 10
   animator: {fileID: 5285917225937711522}
   sphereCollider: {fileID: 5849393289448097258}
   rigidbody: {fileID: 7658202408237871931}
   audioSource: {fileID: 6161131940597390267}
   characterModel: {fileID: 1122418701169844374}
   cameraTransform: {fileID: 0}
+  cameraController: {fileID: 0}
 --- !u!135 &5849393289448097258
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -269,6 +271,7 @@ GameObject:
   - component: {fileID: 1122418701169844374}
   - component: {fileID: 4001732326338491823}
   - component: {fileID: 6311128031147693237}
+  - component: {fileID: 3799262179067388352}
   m_Layer: 0
   m_Name: BubbleMesh
   m_TagString: Untagged
@@ -322,7 +325,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 189c05111327a384ea5a2911f6736710, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -344,3 +347,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3799262179067388352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5664313748289337479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d01104811496694ea1d45911e091003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
