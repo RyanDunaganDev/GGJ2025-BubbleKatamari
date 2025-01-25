@@ -35,6 +35,7 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private float moveSpeedChangeRate = 10f;   // The rate per second that the move speed updates to new targets
     [SerializeField] private float jetDuration = 0.5f;          // time velocity is uncapped (unless in air)
     [SerializeField] private float jetCooldown = 3f;            // time before next jet
+    private IEnumerator speedChangeCoroutine;
 
     [Header("Player - Air Movement")]
     [SerializeField] private float airControlMultiplier = 0.4f; // The multiplier used to affect the amount of control you have in the air
@@ -54,6 +55,9 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private int wallStickFrameLookahead = 1;       // How many frames ahead to check for collisions and adjust wallstick direction
     [SerializeField] private float minWallAngle = 45f;              // Minimum angle (in degrees) that a collision must be to be considered a "wall"
     protected Vector3 finalAdjustedMovementDirection;               // The movementDirection adjusted by wallstick direction
+
+    //[Header("Player - Scale Factor")]
+    //private float ScaleFactor => (2f * sphereCollider.radius);
 
     [Header("Character - Component/Object References")]
     [SerializeField] protected Animator animator;
@@ -341,7 +345,10 @@ public class BK_BubbleCharacter : MonoBehaviour
     {
         isBoosting = true;
 
-        StartCoroutine(UpateMaxSpeed(maxBoostSpeed));
+        if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+        speedChangeCoroutine = UpateMaxSpeed(maxBoostSpeed);
+        StartCoroutine(speedChangeCoroutine);
     }
 
     /// <summary>
@@ -351,7 +358,10 @@ public class BK_BubbleCharacter : MonoBehaviour
     {
         isBoosting = false;
 
-        StartCoroutine(UpateMaxSpeed(maxRollSpeed));
+        if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+        speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+        StartCoroutine(speedChangeCoroutine);
     }
     /// <summary>
     /// Tell the CharacterMovement to begin Jet!
@@ -554,6 +564,16 @@ public class BK_BubbleCharacter : MonoBehaviour
             // Debug Match Vector
             Debug.DrawRay(farthestHit.point + (Vector3.up * 0.1f), matchVector + (Vector3.up * 0.1f), Color.black); // Match Vector
         }
+    }
+
+    #endregion
+
+    #region Size Changing
+
+    public void IncreaseSize(float increaseAmount)
+    {
+        sphereCollider.radius += increaseAmount / 2f;
+        characterModel.transform.localScale += Vector3.one * increaseAmount;
     }
 
     #endregion
