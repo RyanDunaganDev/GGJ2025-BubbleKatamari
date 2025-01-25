@@ -21,12 +21,13 @@ public class BK_BubbleCharacter : MonoBehaviour
     protected Vector3 movementDirection;
 
     [Header("Player - Ground Movement")]
-    [SerializeField] private float accelerationRate = 60f;  // The speed at which this character accelerates in m/s
-    [SerializeField] private float decelerationRate = 12f;  // The speed at which this character decelerates in m/s
-    [SerializeField] private float maxRollSpeed = 4f;       // The max horizontal speed of this character (when moving) in m/s
-    [SerializeField] private float maxBoostSpeed = 7f;      // The max horizontal speed of this character (when boosting) in m/s
-    [SerializeField] private float maxVerticalSpeed = 10f;  // The maximum vertical move speed of this character in m/s
-    private bool isBoosting = false;                        // Indicates whether you are boosting or not
+    [SerializeField] private float accelerationRate = 60f;      // The speed at which this character accelerates in m/s
+    [SerializeField] private float decelerationRate = 12f;      // The speed at which this character decelerates in m/s
+    [SerializeField] private float maxRollSpeed = 4f;           // The max horizontal speed of this character (when moving) in m/s
+    [SerializeField] private float maxBoostSpeed = 7f;          // The max horizontal speed of this character (when boosting) in m/s
+    [SerializeField] private float maxVerticalSpeed = 10f;      // The maximum vertical move speed of this character in m/s
+    private bool isBoosting = false;                            // Indicates whether you are boosting or not
+    [SerializeField] private float moveSpeedChangeRate = 10f;   // The rate per second that the move speed updates to new targets
 
     [Header("Player - Air Movement")]
     [SerializeField] private float airControlMultiplier = 0.4f; // The multiplier used to affect the amount of control you have in the air
@@ -169,7 +170,7 @@ public class BK_BubbleCharacter : MonoBehaviour
     private void CalculateWallStickRelativeInput()
     {
         // Debug draw movementDirection before modification
-        if (showWallStickDebug) { Debug.DrawRay(transform.position + (Vector3.up * 2.1f), movementDirection, Color.blue); }
+        if (showWallStickDebug) { Debug.DrawRay(transform.position + (Vector3.up * 1.1f), movementDirection, Color.blue); }
 
         // Do nothing if we aren't moving into a wall
         if (wallStickDirection == Vector3.zero) { return; }
@@ -323,7 +324,8 @@ public class BK_BubbleCharacter : MonoBehaviour
     public void StartBoosting()
     {
         isBoosting = true;
-        currentMaxSpeed = maxBoostSpeed;
+
+        StartCoroutine(UpateMaxSpeed(maxBoostSpeed));
     }
 
     /// <summary>
@@ -332,7 +334,28 @@ public class BK_BubbleCharacter : MonoBehaviour
     public void StopBoosting()
     {
         isBoosting = false;
-        currentMaxSpeed = maxRollSpeed;
+
+        StartCoroutine(UpateMaxSpeed(maxRollSpeed));
+    }
+
+    private IEnumerator UpateMaxSpeed(float newSpeedTarget)
+    {
+        while (currentMaxSpeed != newSpeedTarget)
+        {
+            float diff = newSpeedTarget - currentMaxSpeed;
+            float direction = Mathf.Sign(diff);
+
+            float change = moveSpeedChangeRate * Time.deltaTime;
+
+            if (Mathf.Abs(diff) < change)
+            {
+                currentMaxSpeed = newSpeedTarget;
+                break;
+            }
+            currentMaxSpeed += direction * change;
+            
+            yield return null;
+        }
     }
 
     #endregion
@@ -349,11 +372,11 @@ public class BK_BubbleCharacter : MonoBehaviour
 
         // Calculate the center of the spheres on the bottom and top of the capsule for the Capsule Cast
         RaycastHit hit;
-        isGrounded = Physics.SphereCast(sphereCollider.center,  // Center of first circle 
+        isGrounded = Physics.SphereCast(transform.position + (Vector3.up * 0.1f),  // Center of first circle 
                                         sphereCollider.radius,  // Radius of capsule 
                                         Vector3.down,           // Direction of cast 
                                         out hit,                // RaycastHit that receives information about hit
-                                        groundCheckDistance,    // Length of cast
+                                        groundCheckDistance + 0.1f,    // Length of cast
                                         environmentLayerMask);  // LayerMask to specify hittable layers
 
         // We became grounded this frame
@@ -404,7 +427,7 @@ public class BK_BubbleCharacter : MonoBehaviour
         float checkDistance = (currentMaxSpeed * wallStickFrameLookahead * Time.fixedDeltaTime) + 0.1f;
 
         // Find any colliders we're going to hit
-        RaycastHit[] hits = Physics.SphereCastAll(sphereCollider.center, sphereCollider.radius * 0.95f, checkDirection, checkDistance, environmentLayerMask, QueryTriggerInteraction.Ignore);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, sphereCollider.radius * 0.95f, checkDirection, checkDistance, environmentLayerMask, QueryTriggerInteraction.Ignore);
 
         // If we did not hit anything, stop here
         if (hits.Length == 0)
@@ -519,7 +542,7 @@ public class BK_BubbleCharacter : MonoBehaviour
             // Move bottom collider up slightly so we don't think we're running into the ground
             // Move start positions in opposite of checkDirection by 0.1f units to make sure
             // capsule doesn't overlap wall at beginning position
-            Vector3 sphereStart = sphereCollider.center + (checkDirection * -0.1f);
+            Vector3 sphereStart = transform.position + (checkDirection * -0.1f);
 
             // Check as far as we'll move in the next "wallStickFrameLookahead" frames
             // Add 0.1f to account for start movement
