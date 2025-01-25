@@ -52,9 +52,23 @@ public class BK_GameManager : MonoBehaviour
         ResumeGame();
     }
 
+    private void Update()
+    {
+        // Tick timer while game is playing
+        if (gameState.CurrentGameStatus == GameStatus.InProgress)
+        {
+            TickTimer();
+        }
+    }
+
     #endregion
 
     #region Custom Functions
+
+    public void LoadScene(string sceneName)
+    {
+        BK_LoadingScreenManager.Instance.LoadScene(sceneName);
+    }
 
     // This function is called by some external script in order to set the game state to paused.
     public void PauseGame()
@@ -103,6 +117,17 @@ public class BK_GameManager : MonoBehaviour
         // Update the Game's Status in the GameState
         gameState.UpdateGameStatus(GameStatus.PlayerLost);
         Debug.Log("Player lost!");
+    }
+
+    public void AddScore(float scoreToAdd)
+    {
+        gameState.DeltaGameScore(scoreToAdd);
+    }
+
+    private void TickTimer()
+    {
+        // TODO: Flip timer to count down and init timer value
+        gameState.TickTimer(Time.deltaTime);
     }
 
     #endregion

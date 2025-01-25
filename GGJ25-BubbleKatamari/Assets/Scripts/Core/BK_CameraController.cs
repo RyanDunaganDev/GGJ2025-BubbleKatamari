@@ -5,16 +5,15 @@ public class BK_CameraController : MonoBehaviour
 {
     CinemachineOrbitalFollow orbitalFollow;
 
-    private float currentRadius = 1f;
+    [SerializeField] private float radiusScaleFactor = 5f;
 
     private void Awake()
     {
         orbitalFollow = GetComponent<CinemachineOrbitalFollow>();
     }
 
-    public void IncreaseCameraRadius(float sphereRadius)
+    public void SetCameraRadius(float sphereRadius)
     {
-        currentRadius += sphereRadius;
-        orbitalFollow.Radius = currentRadius * 3f;
+        orbitalFollow.Radius = sphereRadius * radiusScaleFactor;
     }
 }

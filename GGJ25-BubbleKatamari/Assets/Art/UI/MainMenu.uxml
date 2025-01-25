@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="root" style="flex-grow: 1; align-items: center; background-image: url(&quot;project://database/Assets/Art/Textures/CounterTop_Base_color.png?fileID=2800000&amp;guid=7eeb964533a497c41bae3dc0efd362f3&amp;type=3#CounterTop_Base_color&quot;);">
+        <engine:VisualElement name="title" style="width: 1200px; height: 400px; background-image: url(&quot;project://database/Assets/Art/Textures/Small%20Objects_Base_color.png?fileID=2800000&amp;guid=2fbffef8452406b4380529c44c002646&amp;type=3#Small Objects_Base_color&quot;); top: 100px;" />
+        <engine:VisualElement name="button-container" style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; top: 500px; align-items: center; justify-content: center;">
+            <engine:Button text="Start Game" name="start-button" style="position: absolute; bottom: 100px; justify-content: center; align-items: center; width: 600px; height: 400px; background-image: url(&quot;project://database/Assets/Art/Textures/CLOTH_Base_color.png?fileID=2800000&amp;guid=87fcc21f7371b194f81458b867e6abc8&amp;type=3#CLOTH_Base_color&quot;); font-size: 72px;" />
+            <engine:Button text="Quit Game" name="quit-button" style="position: relative; justify-content: center; align-items: center; width: 300px; height: 200px; background-image: url(&quot;project://database/Assets/Art/Textures/CLOTH_Base_color.png?fileID=2800000&amp;guid=87fcc21f7371b194f81458b867e6abc8&amp;type=3#CLOTH_Base_color&quot;); background-color: rgb(255, 255, 255); top: 80px; left: 500px; font-size: 36px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

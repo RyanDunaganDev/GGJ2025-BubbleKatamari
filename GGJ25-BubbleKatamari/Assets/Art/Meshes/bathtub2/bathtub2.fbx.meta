@@ -29,6 +29,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Tub
     second: {fileID: 2100000, guid: c774fdf8e85a6014e92443bd41e6442e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 3c9e2e806b5c48b4e9fdf5f5744083df, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
