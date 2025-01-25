@@ -69,6 +69,7 @@ MonoBehaviour:
   maxRollSpeed: 4
   maxBoostSpeed: 7
   maxVerticalSpeed: 10
+  moveSpeedChangeRate: 10
   airControlMultiplier: 0.4
   groundCheckDistance: 0.1
   environmentLayerMask:
