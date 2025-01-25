@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -25,9 +26,17 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private float decelerationRate = 12f;      // The speed at which this character decelerates in m/s
     [SerializeField] private float maxRollSpeed = 4f;           // The max horizontal speed of this character (when moving) in m/s
     [SerializeField] private float maxBoostSpeed = 7f;          // The max horizontal speed of this character (when boosting) in m/s
+    [SerializeField] private float maxJetSpeed = 14f;          // The max horizontal speed of this character (when jetting) in m/s
     [SerializeField] private float maxVerticalSpeed = 10f;      // The maximum vertical move speed of this character in m/s
+    [SerializeField] private float maxVerticalSpeedMemory = 0f;  //the origianl max vertical speed
+    [SerializeField] private float jetSPEED = 60f;
     private bool isBoosting = false;                            // Indicates whether you are boosting or not
+    private bool isJetting = false;                             // Indicates if the player is cooking with GAS
+    private bool readyToJet = true;
     [SerializeField] private float moveSpeedChangeRate = 10f;   // The rate per second that the move speed updates to new targets
+    [SerializeField] private float jetDuration = 0.5f;          // time velocity is uncapped (unless in air)
+    [SerializeField] private float jetCooldown = 3f;            // time before next jet
+    private IEnumerator speedChangeCoroutine;
 
     [Header("Player - Air Movement")]
     [SerializeField] private float airControlMultiplier = 0.4f; // The multiplier used to affect the amount of control you have in the air
@@ -48,6 +57,17 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private float minWallAngle = 45f;              // Minimum angle (in degrees) that a collision must be to be considered a "wall"
     protected Vector3 finalAdjustedMovementDirection;               // The movementDirection adjusted by wallstick direction
 
+    [Header("Player - Scale Factor")]
+    private float currentScaleFactor = 1f;
+    public float TotalScaleFactor { get { return currentScaleFactor; } }
+    public float HalfScaleFactor { get { return currentScaleFactor / 2f; } }
+    public float CurrentVolume { get { return (4f/3f * Mathf.PI * (sphereCollider.radius * sphereCollider.radius * sphereCollider.radius)); } }
+    public float CurrentTargetVolume { get { return (4f/3f * Mathf.PI * (HalfScaleFactor * HalfScaleFactor * HalfScaleFactor)); } }
+    //private float ScaleFactor => (2f * sphereCollider.radius);
+    [SerializeField] private float scaleChangeTime = 1f;
+    [SerializeField] private float scaleChangeRate = 10f;   // The rate per second that the scale factor updates to new targets
+    private IEnumerator scaleChangeCoroutine;
+
     [Header("Character - Component/Object References")]
     [SerializeField] protected Animator animator;
     [SerializeField] protected SphereCollider sphereCollider;
@@ -57,6 +77,7 @@ public class BK_BubbleCharacter : MonoBehaviour
 
     [Header("Camera")]
     [SerializeField] private Transform cameraTransform;         // The transform component of our Character's Camera
+    [SerializeField] private BK_CameraController cameraController;
 
     #endregion
 
@@ -64,11 +85,16 @@ public class BK_BubbleCharacter : MonoBehaviour
 
     private void Start()
     {
+        maxVerticalSpeedMemory = maxVerticalSpeed; //set memory
         // Find the camera if not set
         if (cameraTransform == null) { cameraTransform = Camera.main.transform; }
+        if (cameraController == null) { FindAnyObjectByType<BK_CameraController>(); }
 
         // Start out not boosting
         StopBoosting();
+
+        // Init size
+        SetScaleFactor(CurrentTargetVolume, true);
     }
 
     private void FixedUpdate()
@@ -214,7 +240,7 @@ public class BK_BubbleCharacter : MonoBehaviour
         if (finalAdjustedMovementDirection != Vector3.zero)
         {
             // If we are on the ground we want to move according to our movespeed.
-            if (isGrounded)
+            if (isGrounded & !isJetting)
             {
                 // Apply our movement Force.
                 rigidbody.AddForce(finalAdjustedMovementDirection * accelerationRate, ForceMode.Acceleration);
@@ -251,6 +277,14 @@ public class BK_BubbleCharacter : MonoBehaviour
     /// </summary>
     private void LimitVelocity()
     {
+        if(isJetting)
+        {
+            maxVerticalSpeed = maxJetSpeed;
+        }
+        else
+        {
+            maxVerticalSpeed = maxVerticalSpeedMemory;
+        }
         // Limit Horizontal Velocity
         // If our current velocity is greater than our maximum allowed velocity...
         Vector3 currentVelocity = GetHorizontalRBVelocity();
@@ -325,7 +359,10 @@ public class BK_BubbleCharacter : MonoBehaviour
     {
         isBoosting = true;
 
-        StartCoroutine(UpateMaxSpeed(maxBoostSpeed));
+        if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+        speedChangeCoroutine = UpateMaxSpeed(maxBoostSpeed);
+        StartCoroutine(speedChangeCoroutine);
     }
 
     /// <summary>
@@ -335,7 +372,49 @@ public class BK_BubbleCharacter : MonoBehaviour
     {
         isBoosting = false;
 
-        StartCoroutine(UpateMaxSpeed(maxRollSpeed));
+        if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+        speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+        StartCoroutine(speedChangeCoroutine);
+    }
+
+    /// <summary>
+    /// Tell the CharacterMovement to begin Jet!
+    /// </summary>
+    public void StartJet()
+    {
+
+        // If we're ready to jump (cooldown) and we're either on the ground or still have more jumps we can perform
+        if (readyToJet)
+        {
+            isJetting = true;
+            currentMaxSpeed = maxJetSpeed;
+            rigidbody.AddForce((transform.position - cameraTransform.position).normalized * jetSPEED, ForceMode.VelocityChange);
+
+            //Start our jet cooldown
+            readyToJet = false;
+            StartCoroutine(JetCooldownCoroutine());
+        }
+
+
+    }
+    private IEnumerator JetCooldownCoroutine()
+    {
+        yield return new WaitForSeconds(jetDuration);
+        if (isGrounded)
+        {
+            if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+            speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+            StartCoroutine(speedChangeCoroutine);
+
+            isJetting = false;
+        }
+        yield return new WaitForSeconds(jetCooldown-jetDuration);
+        if (isGrounded)
+        {
+            readyToJet = true;
+        }
     }
 
     private IEnumerator UpateMaxSpeed(float newSpeedTarget)
@@ -382,8 +461,13 @@ public class BK_BubbleCharacter : MonoBehaviour
         // We became grounded this frame
         if (!wasGroundedLastFrame && isGrounded)
         {
-            //// Reset jumps when we hit the ground
-            //currentJump = 0;
+
+            if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+            speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+            StartCoroutine(speedChangeCoroutine);
+            isJetting = false;
+            readyToJet = true;
         }
         // We became airborne this frame
         else if (wasGroundedLastFrame && !isGrounded)
@@ -502,6 +586,97 @@ public class BK_BubbleCharacter : MonoBehaviour
             // Debug Match Vector
             Debug.DrawRay(farthestHit.point + (Vector3.up * 0.1f), matchVector + (Vector3.up * 0.1f), Color.black); // Match Vector
         }
+    }
+
+    #endregion
+
+    #region Size Changing
+
+    public void IncreaseScaleFactor(float increaseAmount)
+    {
+        currentScaleFactor += increaseAmount;
+
+        if (scaleChangeCoroutine != null) { StopCoroutine(scaleChangeCoroutine); }
+
+        scaleChangeCoroutine = UpdateScaleFactor(scaleChangeTime);
+        StartCoroutine(scaleChangeCoroutine);
+    }
+
+    public void SetScaleFactor(float targetAmount, bool immediate = false)
+    {
+        currentScaleFactor = targetAmount;
+
+        if (immediate)
+        {
+            sphereCollider.radius = HalfScaleFactor;
+            cameraController.SetCameraRadius(sphereCollider.radius);
+            characterModel.transform.localScale = Vector3.one * TotalScaleFactor;
+        }
+        else
+        {
+            if (scaleChangeCoroutine != null) { StopCoroutine(scaleChangeCoroutine); }
+
+            scaleChangeCoroutine = UpdateScaleFactor(scaleChangeTime);
+            StartCoroutine(scaleChangeCoroutine);
+        }
+    }
+
+    private IEnumerator UpdateScaleFactor(float blendTime)
+    {
+        //bool radiusDone = false;
+        //bool scaleDone = false;
+
+        float startRadius = sphereCollider.radius;
+        Vector3 startScale = characterModel.transform.localScale;
+
+        float endRadius = HalfScaleFactor;
+        Vector3 endScale = Vector3.one * TotalScaleFactor;
+
+        float count = 0f;
+        while (count < blendTime)
+        {
+            count += Time.deltaTime;
+            float progress = count / blendTime;
+
+            sphereCollider.radius = Mathf.Lerp(startRadius, endRadius, progress);
+            cameraController.SetCameraRadius(sphereCollider.radius);
+            characterModel.transform.localScale = Vector3.Lerp(startScale, endScale, progress);
+
+            yield return null;
+        }
+
+        //while(!radiusDone && !scaleDone)
+        //{
+        //    if (!radiusDone)
+        //    {
+        //        float diff = (currentScaleFactor / 2f) - sphereCollider.radius;
+        //        float direction = Mathf.Sign(diff);
+
+        //        if (Mathf.Abs(diff) < halfChangeRate)
+        //        {
+        //            sphereCollider.radius = currentScaleFactor / 2f;
+        //            radiusDone = true;
+        //        }
+        //        else { sphereCollider.radius += direction * halfChangeRate; }
+
+        //        cameraController.SetCameraRadius(sphereCollider.radius);
+        //    }
+
+        //    if (!scaleDone)
+        //    {
+        //        float diff = currentScaleFactor - characterModel.transform.localScale.x;
+        //        float direction = Mathf.Sign(diff);
+
+        //        if (Mathf.Abs(diff) < changeRate)
+        //        {
+        //            characterModel.transform.localScale = Vector3.one * currentScaleFactor;
+        //            scaleDone = true;
+        //        }
+        //        else { characterModel.transform.localScale += Vector3.one * direction * changeRate; }
+        //    }
+
+        //    yield return null;
+        //}
     }
 
     #endregion

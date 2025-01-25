@@ -38,7 +38,7 @@
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -60,12 +60,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Unused3",
+                    "name": "Jet",
                     "type": "Button",
                     "id": "f1ba0d36-48eb-4cd5-b651-1c94a6531f70",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DebugSize",
+                    "type": "Value",
+                    "id": "43d40a4b-c97c-446e-b59a-cee535b019ac",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -399,7 +408,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Unused3",
+                    "action": "Jet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -410,7 +419,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Unused3",
+                    "action": "Jet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -421,7 +430,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Unused3",
+                    "action": "Jet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -493,6 +502,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c5d61a19-085d-49cc-bbe0-4ab5cede532d",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TogglePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b3f66d0b-7751-423f-908b-a11c5bd95930",
                     "path": "<Gamepad>/start",
                     "interactions": "",
@@ -543,6 +563,105 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Unused2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7695f901-fe01-4dcf-a124-a836cf54bb5e",
+                    "path": "<Keyboard>/numpad1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DebugSize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d18aa7f-d214-49b2-9b25-9b2ff07743e2",
+                    "path": "<Keyboard>/numpad2",
+                    "interactions": "",
+                    "processors": "Scale(factor=2)",
+                    "groups": "",
+                    "action": "DebugSize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "627ab9b1-b3ae-45c0-b3e1-143830d14206",
+                    "path": "<Keyboard>/numpad3",
+                    "interactions": "",
+                    "processors": "Scale(factor=3)",
+                    "groups": "",
+                    "action": "DebugSize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "467a262a-3a33-406e-9c1c-d78fa2a75cbe",
+                    "path": "<Keyboard>/numpad4",
+                    "interactions": "",
+                    "processors": "Scale(factor=4)",
+                    "groups": "",
+                    "action": "DebugSize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40a9ccb8-553e-4009-a771-9798ac104cb1",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "Scale(factor=5)",
+                    "groups": "",
+                    "action": "DebugSize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ea6b16c-aa0d-45ea-bf1f-e00c99342e24",
+                    "path": "<Keyboard>/numpad6",
+                    "interactions": "",
+                    "processors": "Scale(factor=6)",
+                    "groups": "",
+                    "action": "DebugSize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f9c96a2-2f72-4262-b056-0772f1174d3c",
+                    "path": "<Keyboard>/numpad7",
+                    "interactions": "",
+                    "processors": "Scale(factor=7)",
+                    "groups": "",
+                    "action": "DebugSize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8487d2d-dc37-4096-8739-e8f403a64a8c",
+                    "path": "<Keyboard>/numpad8",
+                    "interactions": "",
+                    "processors": "Scale(factor=8)",
+                    "groups": "",
+                    "action": "DebugSize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "670820d1-201d-415c-b592-55dbc2204968",
+                    "path": "<Keyboard>/numpad9",
+                    "interactions": "",
+                    "processors": "Scale(factor=9)",
+                    "groups": "",
+                    "action": "DebugSize",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -648,7 +767,7 @@
                     "id": "3659e5bb-887f-4dd4-a773-9621f1eab93a",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -1075,6 +1194,17 @@
                     "name": "",
                     "id": "50bae6dc-061a-47dd-be40-d580efb15263",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TogglePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab67d45e-5361-4f3a-8c8f-176b2b7d7b5a",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",

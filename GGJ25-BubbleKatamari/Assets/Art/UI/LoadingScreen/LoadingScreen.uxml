@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="background" picking-mode="Ignore" style="flex-grow: 1; background-color: rgb(0, 0, 0); position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+        <ui:VisualElement name="loading-icon" style="width: 128px; height: 128px; position: absolute; right: 0; bottom: 0; margin-right: 16px; margin-bottom: 16px; background-image: url(&quot;project://database/Assets/Art/UI/LoadingScreen/LoadingIcon/LoadingIcon.png?fileID=21300000&amp;guid=3c62e7d2bc593844fab619dc92be49cd&amp;type=3#LoadingIcon&quot;);" />
+        <ui:Label tabindex="-1" text="Press any key to Continue" parse-escape-sequences="true" display-tooltip-when-elided="true" name="continue-text" style="position: absolute; left: 0; bottom: 0; width: 600px; height: 80px; -unity-text-align: lower-left; font-size: 36px; margin-left: 16px; margin-bottom: 16px; -unity-font-style: bold; color: rgb(255, 255, 255); opacity: 0;" />
+    </ui:VisualElement>
+</ui:UXML>
