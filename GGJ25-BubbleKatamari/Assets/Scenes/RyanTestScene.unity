@@ -3492,10 +3492,8 @@ MonoBehaviour:
   m_VersionIndex: 4727
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges:
-  - a: 9
-    b: 11
-  m_SelectedVertices: 090000000b000000
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!4 &1890272595
 Transform:
   m_ObjectHideFlags: 0
@@ -3567,6 +3565,10 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 330585546}
+    - target: {fileID: 7103081082971243499, guid: 55671d28c1b9e77489467cbe3135f8ca, type: 3}
+      propertyPath: showWallStickDebug
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
