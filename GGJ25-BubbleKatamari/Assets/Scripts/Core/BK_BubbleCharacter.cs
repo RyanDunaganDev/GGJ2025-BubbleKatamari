@@ -25,9 +25,17 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private float decelerationRate = 12f;      // The speed at which this character decelerates in m/s
     [SerializeField] private float maxRollSpeed = 4f;           // The max horizontal speed of this character (when moving) in m/s
     [SerializeField] private float maxBoostSpeed = 7f;          // The max horizontal speed of this character (when boosting) in m/s
+    [SerializeField] private float maxJetSpeed = 21f;          // The max horizontal speed of this character (when jetting) in m/s
     [SerializeField] private float maxVerticalSpeed = 10f;      // The maximum vertical move speed of this character in m/s
+    [SerializeField] private float maxVerticalSpeedMemory = 0f;  //the origianl max vertical speed
+    [SerializeField] private float jetSPEED = 60f;
     private bool isBoosting = false;                            // Indicates whether you are boosting or not
+    private bool isJetting = false;                             // Indicates if the player is cooking with GAS
+    private bool readyToJet = true;
     [SerializeField] private float moveSpeedChangeRate = 10f;   // The rate per second that the move speed updates to new targets
+    [SerializeField] private float jetDuration = 0.5f;          // time velocity is uncapped (unless in air)
+    [SerializeField] private float jetCooldown = 3f;            // time before next jet
+    private IEnumerator speedChangeCoroutine;
 
     [Header("Player - Air Movement")]
     [SerializeField] private float airControlMultiplier = 0.4f; // The multiplier used to affect the amount of control you have in the air
@@ -48,6 +56,9 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private float minWallAngle = 45f;              // Minimum angle (in degrees) that a collision must be to be considered a "wall"
     protected Vector3 finalAdjustedMovementDirection;               // The movementDirection adjusted by wallstick direction
 
+    //[Header("Player - Scale Factor")]
+    //private float ScaleFactor => (2f * sphereCollider.radius);
+
     [Header("Character - Component/Object References")]
     [SerializeField] protected Animator animator;
     [SerializeField] protected SphereCollider sphereCollider;
@@ -64,6 +75,7 @@ public class BK_BubbleCharacter : MonoBehaviour
 
     private void Start()
     {
+        maxVerticalSpeedMemory = maxVerticalSpeed; //set memory
         // Find the camera if not set
         if (cameraTransform == null) { cameraTransform = Camera.main.transform; }
 
@@ -214,7 +226,7 @@ public class BK_BubbleCharacter : MonoBehaviour
         if (finalAdjustedMovementDirection != Vector3.zero)
         {
             // If we are on the ground we want to move according to our movespeed.
-            if (isGrounded)
+            if (isGrounded & !isJetting)
             {
                 // Apply our movement Force.
                 rigidbody.AddForce(finalAdjustedMovementDirection * accelerationRate, ForceMode.Acceleration);
@@ -251,6 +263,14 @@ public class BK_BubbleCharacter : MonoBehaviour
     /// </summary>
     private void LimitVelocity()
     {
+        if(isJetting)
+        {
+            maxVerticalSpeed = maxJetSpeed;
+        }
+        else
+        {
+            maxVerticalSpeed = maxVerticalSpeedMemory;
+        }
         // Limit Horizontal Velocity
         // If our current velocity is greater than our maximum allowed velocity...
         Vector3 currentVelocity = GetHorizontalRBVelocity();
@@ -325,7 +345,10 @@ public class BK_BubbleCharacter : MonoBehaviour
     {
         isBoosting = true;
 
-        StartCoroutine(UpateMaxSpeed(maxBoostSpeed));
+        if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+        speedChangeCoroutine = UpateMaxSpeed(maxBoostSpeed);
+        StartCoroutine(speedChangeCoroutine);
     }
 
     /// <summary>
@@ -335,7 +358,44 @@ public class BK_BubbleCharacter : MonoBehaviour
     {
         isBoosting = false;
 
-        StartCoroutine(UpateMaxSpeed(maxRollSpeed));
+        if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+        speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+        StartCoroutine(speedChangeCoroutine);
+    }
+    /// <summary>
+    /// Tell the CharacterMovement to begin Jet!
+    /// </summary>
+    public void StartJet()
+    {
+
+        // If we're ready to jump (cooldown) and we're either on the ground or still have more jumps we can perform
+        if (readyToJet)
+        {
+            isJetting = true;
+            currentMaxSpeed = maxJetSpeed;
+            rigidbody.AddForce((transform.position - cameraTransform.position).normalized * jetSPEED, ForceMode.VelocityChange);
+
+            //Start our jet cooldown
+            readyToJet = false;
+            StartCoroutine(JetCooldownCoroutine());
+        }
+
+
+    }
+    private IEnumerator JetCooldownCoroutine()
+    {
+        yield return new WaitForSeconds(jetDuration);
+        if (isGrounded)
+        {
+            UpateMaxSpeed(maxRollSpeed);
+            isJetting = false;
+        }
+        yield return new WaitForSeconds(jetCooldown-jetDuration);
+        if (isGrounded)
+        {
+            readyToJet = true;
+        }
     }
 
     private IEnumerator UpateMaxSpeed(float newSpeedTarget)
@@ -382,8 +442,10 @@ public class BK_BubbleCharacter : MonoBehaviour
         // We became grounded this frame
         if (!wasGroundedLastFrame && isGrounded)
         {
-            //// Reset jumps when we hit the ground
-            //currentJump = 0;
+
+            UpateMaxSpeed(maxRollSpeed);
+            isJetting = false;
+            readyToJet = true;
         }
         // We became airborne this frame
         else if (wasGroundedLastFrame && !isGrounded)
@@ -502,6 +564,16 @@ public class BK_BubbleCharacter : MonoBehaviour
             // Debug Match Vector
             Debug.DrawRay(farthestHit.point + (Vector3.up * 0.1f), matchVector + (Vector3.up * 0.1f), Color.black); // Match Vector
         }
+    }
+
+    #endregion
+
+    #region Size Changing
+
+    public void IncreaseSize(float increaseAmount)
+    {
+        sphereCollider.radius += increaseAmount / 2f;
+        characterModel.transform.localScale += Vector3.one * increaseAmount;
     }
 
     #endregion

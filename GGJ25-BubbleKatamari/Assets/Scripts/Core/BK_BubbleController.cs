@@ -13,6 +13,7 @@ public class BK_BubbleController : MonoBehaviour
 
     [Header("Component / Object References")]
     [SerializeField] private BK_BubbleCharacter bubbleMovement;
+    [SerializeField] private BK_CameraController bubbleCamera;
 
     #endregion
 
@@ -74,6 +75,11 @@ public class BK_BubbleController : MonoBehaviour
 
         playerInputActions.Player.TogglePause.performed += TogglePauseActionPerformed;
         playerInputActions.UI.TogglePause.performed += TogglePauseActionPerformed;
+
+        playerInputActions.Player.Jet.performed += JetPreformed;
+
+        playerInputActions.Player.DebugSize.performed += DebugSize;
+
     }
 
     private void UnsubscribeInputActions()
@@ -89,6 +95,10 @@ public class BK_BubbleController : MonoBehaviour
 
         playerInputActions.Player.TogglePause.performed -= TogglePauseActionPerformed;
         playerInputActions.UI.TogglePause.performed -= TogglePauseActionPerformed;
+
+        playerInputActions.Player.Jet.performed -= JetPreformed;
+
+        playerInputActions.Player.DebugSize.performed -= DebugSize;
     }
 
     /// <summary>
@@ -162,6 +172,17 @@ public class BK_BubbleController : MonoBehaviour
         Debug.Log("The player is trying to pause/unpause!");
 
         BK_GameManager.Instance.TogglePause();
+    }
+    private void JetPreformed(InputAction.CallbackContext context)
+    {
+        bubbleMovement.StartJet();
+    }
+
+    private void DebugSize(InputAction.CallbackContext context)
+    {
+        float amount = context.ReadValue<float>();
+        bubbleMovement.IncreaseSize(amount);
+        bubbleCamera.IncreaseCameraRadius(amount);
     }
 
     #endregion
