@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_NeallBubble
-  m_Shader: {fileID: -6465566751694194690, guid: fe0ee185ab58a1a4e833b901aaca861e, type: 3}
+  m_Name: M_BubbleToon
+  m_Shader: {fileID: -6465566751694194690, guid: bd760c76f7e2eb7408633d89f32c323c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -107,35 +107,44 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DotPower: 2
+    - _DotPower: 0.16
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Float: 0
+    - _FrenelStrength: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _NormalScale: 10
+    - _NormalStrength: 0.05
     - _OcclusionStrength: 1
+    - _OultineSize: 0.25
+    - _OutlineFade: 1
     - _Parallax: 0.005
-    - _PearlScale: 3.22
-    - _PearlStrength: 0
+    - _PearlScale: 5
+    - _PearlStrength: 0.35
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Smooth: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _TransperancyStrength: 5
+    - _WobbleSpeed: 0.1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorMain: {r: 1, g: 1, b: 1, a: 0}
+    - _ColorMain: {r: 0.92543983, g: 0, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
