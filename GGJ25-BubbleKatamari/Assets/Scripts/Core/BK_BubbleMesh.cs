@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BK_BubbleMesh : MonoBehaviour
 {
-    void Update()
+    void LateUpdate()
     {
         transform.up = Vector3.up;       
     }
