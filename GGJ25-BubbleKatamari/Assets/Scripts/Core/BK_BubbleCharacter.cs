@@ -88,7 +88,7 @@ public class BK_BubbleCharacter : MonoBehaviour
         maxVerticalSpeedMemory = maxVerticalSpeed; //set memory
         // Find the camera if not set
         if (cameraTransform == null) { cameraTransform = Camera.main.transform; }
-        if (cameraController == null) { cameraController = cameraTransform.GetComponent<BK_CameraController>(); }
+        if (cameraController == null) { FindAnyObjectByType<BK_CameraController>(); }
 
         // Start out not boosting
         StopBoosting();

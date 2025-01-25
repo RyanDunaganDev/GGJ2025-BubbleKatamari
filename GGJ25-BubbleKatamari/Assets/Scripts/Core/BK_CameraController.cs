@@ -5,7 +5,7 @@ public class BK_CameraController : MonoBehaviour
 {
     CinemachineOrbitalFollow orbitalFollow;
 
-    private float radiusScaleFactor = 3f;
+    [SerializeField] private float radiusScaleFactor = 5f;
 
     private void Awake()
     {

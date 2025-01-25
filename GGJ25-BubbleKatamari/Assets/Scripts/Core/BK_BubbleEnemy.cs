@@ -30,6 +30,8 @@ public class BK_BubbleEnemy : MonoBehaviour
 
                     bubbleCharacter.SetScaleFactor(newRadius);
 
+                    BK_GameManager.Instance.AddScore(bubbleVolume);
+
                     // Pop this bubble
                     Destroy(gameObject);
                 }
