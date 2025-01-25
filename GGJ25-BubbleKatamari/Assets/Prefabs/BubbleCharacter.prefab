@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleMovement: {fileID: 7103081082971243499}
+  bubbleCamera: {fileID: 0}
 --- !u!114 &7103081082971243499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,8 +69,13 @@ MonoBehaviour:
   decelerationRate: 12
   maxRollSpeed: 4
   maxBoostSpeed: 7
+  maxJetSpeed: 14
   maxVerticalSpeed: 10
+  maxVerticalSpeedMemory: 0
+  jetSPEED: 60
   moveSpeedChangeRate: 10
+  jetDuration: 0.5
+  jetCooldown: 3
   airControlMultiplier: 0.4
   groundCheckDistance: 0.1
   environmentLayerMask:

@@ -25,7 +25,7 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private float decelerationRate = 12f;      // The speed at which this character decelerates in m/s
     [SerializeField] private float maxRollSpeed = 4f;           // The max horizontal speed of this character (when moving) in m/s
     [SerializeField] private float maxBoostSpeed = 7f;          // The max horizontal speed of this character (when boosting) in m/s
-    [SerializeField] private float maxJetSpeed = 21f;          // The max horizontal speed of this character (when jetting) in m/s
+    [SerializeField] private float maxJetSpeed = 14f;          // The max horizontal speed of this character (when jetting) in m/s
     [SerializeField] private float maxVerticalSpeed = 10f;      // The maximum vertical move speed of this character in m/s
     [SerializeField] private float maxVerticalSpeedMemory = 0f;  //the origianl max vertical speed
     [SerializeField] private float jetSPEED = 60f;
@@ -363,6 +363,7 @@ public class BK_BubbleCharacter : MonoBehaviour
         speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
         StartCoroutine(speedChangeCoroutine);
     }
+
     /// <summary>
     /// Tell the CharacterMovement to begin Jet!
     /// </summary>
@@ -388,7 +389,11 @@ public class BK_BubbleCharacter : MonoBehaviour
         yield return new WaitForSeconds(jetDuration);
         if (isGrounded)
         {
-            UpateMaxSpeed(maxRollSpeed);
+            if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+            speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+            StartCoroutine(speedChangeCoroutine);
+
             isJetting = false;
         }
         yield return new WaitForSeconds(jetCooldown-jetDuration);
@@ -443,7 +448,10 @@ public class BK_BubbleCharacter : MonoBehaviour
         if (!wasGroundedLastFrame && isGrounded)
         {
 
-            UpateMaxSpeed(maxRollSpeed);
+            if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
+
+            speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+            StartCoroutine(speedChangeCoroutine);
             isJetting = false;
             readyToJet = true;
         }
