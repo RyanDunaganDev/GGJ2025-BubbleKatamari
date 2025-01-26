@@ -54,10 +54,7 @@ public class BK_BubbleEnemy : MonoBehaviour
                 else // Bubble is bigger
                 {
                     // Player loses
-                    Destroy(bubbleCharacter.gameObject);
-
-                    // Player lost
-                    BK_GameManager.Instance.PlayerLost();
+                    bubbleCharacter.KillPlayer();
                 }
             }
         }

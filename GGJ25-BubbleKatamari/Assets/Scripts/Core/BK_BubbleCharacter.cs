@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Unity.Mathematics;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SphereCollider))]
@@ -80,9 +81,18 @@ public class BK_BubbleCharacter : MonoBehaviour
     [SerializeField] private Transform cameraTransform;         // The transform component of our Character's Camera
     [SerializeField] private BK_CameraController cameraController;
 
+    [Header("Enemy - Death Shader")]
+    private Material m_bubble = null;
+    [SerializeField] private float deathDuration = 0.1f;
+
     #endregion
 
     #region Unity Functions
+
+    private void Awake()
+    {
+        m_bubble = GetComponentInChildren<Renderer>().material;
+    }
 
     private void Start()
     {
@@ -696,6 +706,33 @@ public class BK_BubbleCharacter : MonoBehaviour
     }
 
     #endregion
+
+    public void KillPlayer()
+    {
+        StartCoroutine(BubbleDeath());
+    }
+
+    public IEnumerator BubbleDeath()
+    {
+        BK_AudioManager.Instance.PlayBubblePopOneshot();
+
+        float count = 0f;
+
+        while (count < deathDuration)
+        {
+            count += Time.deltaTime;
+            float value = math.remap(0f, deathDuration, -1f, 1, count); // -1f to 1f
+            m_bubble.SetFloat("_IsPop", value);
+            yield return null;
+        }
+
+        yield return null;
+
+        // Player lost
+        BK_GameManager.Instance.PlayerLost();
+
+        Destroy(gameObject);
+    }
 
     #endregion
 
