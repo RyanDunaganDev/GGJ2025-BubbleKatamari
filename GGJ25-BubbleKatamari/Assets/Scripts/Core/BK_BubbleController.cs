@@ -150,8 +150,8 @@ public class BK_BubbleController : MonoBehaviour
 
             default:
                 // Show the mouse cursor
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
         }
     }
