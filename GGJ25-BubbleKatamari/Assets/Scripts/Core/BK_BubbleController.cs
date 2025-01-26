@@ -31,6 +31,18 @@ public class BK_BubbleController : MonoBehaviour
         // GameState callback listeners
         BK_GameState.Instance.OnGamePaused.AddListener(OnGamePausedReceived);
         BK_GameState.Instance.OnGameResumed.AddListener(OnGameResumedReceived);
+
+        BK_GameState.Instance.OnTimeExpired.AddListener(OnTimeExpiredReceived);
+        BK_GameState.Instance.OnPlayerLost.AddListener(OnPlayerLostReceived);
+    }
+
+    private void OnDestroy()
+    {
+        BK_GameState.Instance.OnGamePaused.RemoveListener(OnGamePausedReceived);
+        BK_GameState.Instance.OnGameResumed.RemoveListener(OnGameResumedReceived);
+
+        BK_GameState.Instance.OnTimeExpired.RemoveListener(OnTimeExpiredReceived);
+        BK_GameState.Instance.OnPlayerLost.RemoveListener(OnPlayerLostReceived);
     }
 
     private void OnEnable()
@@ -193,6 +205,20 @@ public class BK_BubbleController : MonoBehaviour
     }
 
     private void OnGameResumedReceived()
+    {
+        SwitchActionMap("Player");
+    }
+
+    #endregion
+
+    #region Gameplay Callbacks
+
+    private void OnTimeExpiredReceived()
+    {
+        SwitchActionMap("UI");
+    }
+
+    private void OnPlayerLostReceived()
     {
         SwitchActionMap("Player");
     }

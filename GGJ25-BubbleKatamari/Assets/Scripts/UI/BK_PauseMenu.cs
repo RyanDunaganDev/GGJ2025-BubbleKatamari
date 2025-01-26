@@ -31,7 +31,10 @@ public class BK_PauseMenu : MonoBehaviour
         resumeButton.RegisterCallback<ClickEvent>(ResumeButtonPressed);
         mainmenuButton.RegisterCallback<ClickEvent>(MainMenuButtonPressed);
         quitButton.RegisterCallback<ClickEvent>(QuitButtonPressed);
+    }
 
+    private void Start()
+    {
         // Here we can subscribe to game state changes in the GameState.
         // It's important that we do this here and not in Awake() to ensure that the GameState has already been initialized.
         BK_GameState.Instance.OnGamePaused.AddListener(ReceivedOnGamePaused);
@@ -47,7 +50,10 @@ public class BK_PauseMenu : MonoBehaviour
         resumeButton.UnregisterCallback<ClickEvent>(ResumeButtonPressed);
         mainmenuButton.UnregisterCallback<ClickEvent>(MainMenuButtonPressed);
         quitButton.UnregisterCallback<ClickEvent>(QuitButtonPressed);
+    }
 
+    private void OnDestroy()
+    {
         BK_GameState.Instance.OnGamePaused.RemoveListener(ReceivedOnGamePaused);
         BK_GameState.Instance.OnGameResumed.RemoveListener(ReceivedOnGameResumed);
     }

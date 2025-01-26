@@ -15,7 +15,7 @@ public class BK_GameState : MonoBehaviour
     public bool IsPaused { get { return isPaused; } }
 
     private float gameScore = 0f;
-    private float gameTime = 0.1f;
+    private float gameTime = 60f;
 
     // The name of the Main Menu scene, so we know if we loaded into it
     [SerializeField] private string mainMenuSceneName = "MainMenu";
@@ -26,8 +26,10 @@ public class BK_GameState : MonoBehaviour
     public UnityEvent OnGamePaused;
     public UnityEvent OnGameResumed;
     public UnityEvent OnGamePlaying;
-    public UnityEvent OnPlayerWon;
     public UnityEvent OnPlayerLost;
+
+    public UnityEvent<float> OnScoreChanged;
+    public UnityEvent<float> OnTimerChanged;
 
     public UnityEvent OnTimeExpired;
 
@@ -115,8 +117,8 @@ public class BK_GameState : MonoBehaviour
             case GameStatus.InProgress:
                 OnGamePlaying?.Invoke();
                 break;
-            case GameStatus.PlayerWon:
-                OnPlayerWon?.Invoke();
+            case GameStatus.TimeExpired:
+                OnTimeExpired?.Invoke();
                 break;
             case GameStatus.PlayerLost:
                 OnPlayerLost?.Invoke();
@@ -134,6 +136,8 @@ public class BK_GameState : MonoBehaviour
     {
         gameScore += scoreDelta;
         Debug.Log($"Game score: {gameScore}");
+
+        OnScoreChanged?.Invoke(gameScore);
     }
 
     public void TickTimer(float deltaTimer)
@@ -141,12 +145,15 @@ public class BK_GameState : MonoBehaviour
         gameTime += deltaTimer;
         //Debug.Log($"Game time: {gameTime}");
 
+        OnTimerChanged?.Invoke(gameTime);
+
 
         if (gameTime <= 0f)
         {
             gameTime = 0f;
 
-            OnTimeExpired?.Invoke();
+            // Set time expired and end game
+            UpdateGameStatus(GameStatus.TimeExpired);
         }
     }
 
@@ -159,11 +166,13 @@ public class BK_GameState : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
 
+        gameScore = 0f;
+        gameTime = 60f;
+
         // Clear all events
         OnGamePaused.RemoveAllListeners();
         OnGameResumed.RemoveAllListeners();
         OnGamePlaying.RemoveAllListeners();
-        OnPlayerWon.RemoveAllListeners();
         OnPlayerLost.RemoveAllListeners();
         OnTimeExpired.RemoveAllListeners();
     }
@@ -186,7 +195,7 @@ public class BK_GameState : MonoBehaviour
 public enum GameStatus
 {
     InProgress,     // The game is in progress
-    PlayerWon,      // The player has won the game
+    TimeExpired,      // The player has won the game
     PlayerLost      // The player has lost the game
 }
 
