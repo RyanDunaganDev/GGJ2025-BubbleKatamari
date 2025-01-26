@@ -1,0 +1,149 @@
+.mainmenu-button {
+    background-color: rgba(255, 255, 255, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.mainmenu-start {
+    position: absolute;
+    bottom: 351px;
+    width: 444px;
+    height: 233px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start.png?fileID=2800000&guid=a89e6d30f688ed64981926663ad343bc&type=3#MM_Start");
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.mainmenu-start:hover {
+    position: absolute;
+    bottom: 351px;
+    width: 444px;
+    height: 233px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start.png?fileID=2800000&guid=a89e6d30f688ed64981926663ad343bc&type=3#MM_Start");
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-start:focus {
+    position: absolute;
+    bottom: 351px;
+    width: 444px;
+    height: 233px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start_Click.png?fileID=2800000&guid=1e09255e6a715db4c9efe00678180f73&type=3#MM_Start_Click");
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-quit {
+    position: absolute;
+    bottom: 61px;
+    width: 357px;
+    height: 216px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit.png?fileID=2800000&guid=c9f8c9865e298c74f93a02af0eae7bae&type=3#MM_Exit");
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.mainmenu-quit:hover {
+    position: absolute;
+    bottom: 61px;
+    width: 357px;
+    height: 216px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit.png?fileID=2800000&guid=c9f8c9865e298c74f93a02af0eae7bae&type=3#MM_Exit");
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-quit:focus {
+    position: absolute;
+    bottom: 61px;
+    width: 357px;
+    height: 216px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit_Click.png?fileID=2800000&guid=28e2e59b57212434d8256ba59b423e8a&type=3#MM_Exit_Click");
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-credits {
+    width: 349px;
+    height: 243px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Credits.png?fileID=2800000&guid=36c842b7a957baf4fbf37c0519cb79e9&type=3#MM_Credits");
+    bottom: 47px;
+    right: 299px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.mainmenu-credits:hover {
+    width: 349px;
+    height: 243px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Credits.png?fileID=2800000&guid=36c842b7a957baf4fbf37c0519cb79e9&type=3#MM_Credits");
+    bottom: 47px;
+    right: 299px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-credits:focus {
+    width: 349px;
+    height: 243px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Credits_Click.png?fileID=2800000&guid=1ade0b86a71b2c547bfb7ad6ed03aaba&type=3#MM_Credits_Click");
+    bottom: 47px;
+    right: 299px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-settings {
+    width: 397px;
+    height: 229px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Settings.png?fileID=2800000&guid=0bdd61e7d14abe24bbe3d69dfcde143c&type=3#MM_Settings");
+    bottom: 47px;
+    left: 256px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.mainmenu-settings:hover {
+    width: 397px;
+    height: 229px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Settings.png?fileID=2800000&guid=0bdd61e7d14abe24bbe3d69dfcde143c&type=3#MM_Settings");
+    bottom: 47px;
+    left: 256px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-settings:focus {
+    width: 397px;
+    height: 229px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Settings_Click.png?fileID=2800000&guid=4477123602f7bd9448e36827fff04bb3&type=3#MM_Settings_Click");
+    bottom: 47px;
+    left: 256px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}

@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/UI/BK_Styles.uss?fileID=7433441132597879392&amp;guid=f60ddf02dc9c69f4fa538b2b4214a328&amp;type=3#BK_Styles" />
+    <engine:VisualElement name="root" style="flex-grow: 1; align-items: center; background-image: url(&quot;project://database/Assets/Art/UI/MainMenu/Background.png?fileID=2800000&amp;guid=3f6ca2be4e011c44f89f5eeb8c303ed7&amp;type=3#Background&quot;);">
+        <engine:VisualElement name="title" style="width: 1050px; height: 426px; background-image: url(&quot;project://database/Assets/Art/UI/MainMenu/MM_Title.png?fileID=2800000&amp;guid=f90503e4373ea09499a80fb237785c5d&amp;type=3#MM_Title&quot;);" />
+        <engine:VisualElement name="button-container" style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; top: 500px; align-items: center; justify-content: center;">
+            <engine:Button name="start-button" class="mainmenu-button mainmenu-start" />
+            <engine:Button name="quit-button" class="mainmenu-button mainmenu-quit" />
+            <engine:Button name="credits-button" class="mainmenu-button mainmenu-credits" />
+            <engine:Button name="settings-button" class="mainmenu-button mainmenu-settings" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
