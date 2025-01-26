@@ -47,9 +47,6 @@ public class BK_GameManager : MonoBehaviour
         // Cache a reference to the GameState when the game starts
         // Start is called after Awake (where GameState.Instance is initialized) so the Instance should exist by now
         gameState = BK_GameState.Instance;
-
-        // Resume the game so we don't start paused when the game loads a scene
-        ResumeGame();
     }
 
     private void Update()
@@ -64,6 +61,12 @@ public class BK_GameManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         BK_LoadingScreenManager.Instance.LoadScene(sceneName);
+    }
+
+    public void StartGame()
+    {
+        gameState.UpdateGameStatus(GameStatus.InProgress);
+        ResumeGame();
     }
 
     // This function is called by some external script in order to set the game state to paused.

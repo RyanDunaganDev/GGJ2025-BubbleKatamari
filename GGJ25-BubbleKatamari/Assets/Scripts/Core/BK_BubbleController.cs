@@ -32,6 +32,8 @@ public class BK_BubbleController : MonoBehaviour
         BK_GameState.Instance.OnGamePaused.AddListener(OnGamePausedReceived);
         BK_GameState.Instance.OnGameResumed.AddListener(OnGameResumedReceived);
 
+        BK_GameState.Instance.OnGameInProgress.AddListener(OnGameInProgressReceived);
+
         BK_GameState.Instance.OnTimeExpired.AddListener(OnTimeExpiredReceived);
         BK_GameState.Instance.OnPlayerLost.AddListener(OnPlayerLostReceived);
     }
@@ -40,6 +42,8 @@ public class BK_BubbleController : MonoBehaviour
     {
         BK_GameState.Instance.OnGamePaused.RemoveListener(OnGamePausedReceived);
         BK_GameState.Instance.OnGameResumed.RemoveListener(OnGameResumedReceived);
+
+        BK_GameState.Instance.OnGameInProgress.RemoveListener(OnGameInProgressReceived);
 
         BK_GameState.Instance.OnTimeExpired.RemoveListener(OnTimeExpiredReceived);
         BK_GameState.Instance.OnPlayerLost.RemoveListener(OnPlayerLostReceived);
@@ -55,7 +59,7 @@ public class BK_BubbleController : MonoBehaviour
         SubscribeInputActions();
 
         // We need to enable our "Player" action map so Unity will listen for our input
-        SwitchActionMap("Player");
+        SwitchActionMap();
     }
 
     private void OnDisable()
@@ -214,6 +218,11 @@ public class BK_BubbleController : MonoBehaviour
     #endregion
 
     #region Gameplay Callbacks
+
+    private void OnGameInProgressReceived()
+    {
+        SwitchActionMap("Player");
+    }
 
     private void OnTimeExpiredReceived()
     {

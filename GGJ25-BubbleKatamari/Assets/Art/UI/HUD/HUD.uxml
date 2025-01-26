@@ -18,4 +18,5 @@
             <engine:Label text="0" name="score-label" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); flex-grow: 1.5; -unity-text-align: upper-center;" />
         </engine:VisualElement>
     </engine:VisualElement>
+    <engine:Label text="Default" name="center-message" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; font-size: 144px; -unity-text-align: middle-center; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); -unity-text-outline-color: rgb(77, 77, 77); -unity-text-outline-width: 4px; -unity-font-style: bold; color: rgb(228, 228, 228); visibility: hidden;" />
 </engine:UXML>
