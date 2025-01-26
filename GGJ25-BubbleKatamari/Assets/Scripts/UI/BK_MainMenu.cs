@@ -14,6 +14,9 @@ public class BK_MainMenu : BK_MasterUI
     private Button creditsButton;
     private Button settingsButton;
 
+    private VisualElement tutorialPanel;
+    private VisualElement creditsPanel;
+
     private void OnEnable()
     {
         // The UXML is already instantiated by the UIDocument component
@@ -26,6 +29,9 @@ public class BK_MainMenu : BK_MasterUI
         quitButton = root.Q("quit-button") as Button;
         creditsButton = root.Q("credits-button") as Button;
         settingsButton = root.Q("settings-button") as Button;
+
+        tutorialPanel = root.Q("tutorial-panel") as VisualElement;
+        creditsPanel = root.Q("credits-panel") as VisualElement;
 
         startButton.RegisterCallback<ClickEvent>(StartGame);
         quitButton.RegisterCallback<ClickEvent>(QuitGame);
@@ -93,11 +99,25 @@ public class BK_MainMenu : BK_MasterUI
 
     private void ToggleCredits(ClickEvent evt)
     {
-
+        if (creditsPanel.style.visibility == Visibility.Visible)
+        {
+            creditsPanel.style.visibility = Visibility.Hidden;
+        }
+        else
+        {
+            creditsPanel.style.visibility = Visibility.Visible;
+        }
     }
 
     private void ToggleSettings(ClickEvent evt)
     {
-
+        if (tutorialPanel.style.visibility == Visibility.Visible)
+        {
+            tutorialPanel.style.visibility = Visibility.Hidden;
+        }
+        else
+        {
+            tutorialPanel.style.visibility = Visibility.Visible;
+        }
     }
 }
