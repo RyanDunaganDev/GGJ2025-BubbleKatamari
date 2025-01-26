@@ -27,7 +27,7 @@ public class BK_BubbleEnemy : MonoBehaviour
         if (sphereCollider == null) { sphereCollider = GetComponent<SphereCollider>(); }
         if (bubbleMesh == null) { bubbleMesh = transform.GetChild(0); }
 
-        SetScaleFactor(sphereCollider.radius * 2f);
+        RefreshScaleFactor();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,6 +69,11 @@ public class BK_BubbleEnemy : MonoBehaviour
 
         sphereCollider.radius = HalfScaleFactor;
         bubbleMesh.transform.localScale = Vector3.one * TotalScaleFactor;
+    }
+
+    public void RefreshScaleFactor()
+    {
+        SetScaleFactor(sphereCollider.radius * 2f);
     }
 
     public IEnumerator BubbleDeath()
