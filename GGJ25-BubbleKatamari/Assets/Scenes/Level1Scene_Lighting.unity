@@ -5,11 +5,11 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
-    smallestHole: 0.25
-    backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+    smallestOccluder: 20
+    smallestHole: 1
+    backfaceThreshold: 50
+  m_SceneGUID: 043f0a2e54c860c4181efe1221c6afb2
+  m_OcclusionCullingData: {fileID: 36300000, guid: 1e2845f237ae5b041ba305d8c39389b8, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -3859,6 +3859,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 108384758}
     m_Modifications:
+    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
+      propertyPath: m_Name
+      value: LightSpot Bright (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -426.80847
@@ -3898,10 +3902,6 @@ PrefabInstance:
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
-      propertyPath: m_Name
-      value: LightSpot Bright (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4720,6 +4720,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 108384758}
     m_Modifications:
+    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
+      propertyPath: m_Name
+      value: LightSpot Bright (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -223.7214
@@ -4759,10 +4763,6 @@ PrefabInstance:
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
-      propertyPath: m_Name
-      value: LightSpot Bright (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5775,6 +5775,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 108384758}
     m_Modifications:
+    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
+      propertyPath: m_Name
+      value: LightSpot Bright (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -223.7214
@@ -5814,10 +5818,6 @@ PrefabInstance:
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
-      propertyPath: m_Name
-      value: LightSpot Bright (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6009,6 +6009,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 108384758}
     m_Modifications:
+    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
+      propertyPath: m_Name
+      value: LightSpot Bright (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -426.80847
@@ -6048,10 +6052,6 @@ PrefabInstance:
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
-      propertyPath: m_Name
-      value: LightSpot Bright (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7799,6 +7799,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 108384758}
     m_Modifications:
+    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
+      propertyPath: m_Name
+      value: LightSpot Bright
+      objectReference: {fileID: 0}
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.128124
@@ -7838,10 +7842,6 @@ PrefabInstance:
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
-      propertyPath: m_Name
-      value: LightSpot Bright
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10652,6 +10652,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 108384758}
     m_Modifications:
+    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
+      propertyPath: m_Name
+      value: LightSpot Bright (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -426.80847
@@ -10691,10 +10695,6 @@ PrefabInstance:
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
-      propertyPath: m_Name
-      value: LightSpot Bright (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18152,6 +18152,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 108384758}
     m_Modifications:
+    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
+      propertyPath: m_Name
+      value: LightSpot Bright (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.128124
@@ -18191,10 +18195,6 @@ PrefabInstance:
     - target: {fileID: 7443528251519571612, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 505673565164779038, guid: f0dbb35aab2f4cb4e89dcd58063e2b92, type: 3}
-      propertyPath: m_Name
-      value: LightSpot Bright (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
