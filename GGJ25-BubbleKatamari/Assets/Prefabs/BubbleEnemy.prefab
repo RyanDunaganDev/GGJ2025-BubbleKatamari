@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 189c05111327a384ea5a2911f6736710, type: 2}
+  - {fileID: 2100000, guid: e69722f2dae9c3c4b82076a2b7d298ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,3 +155,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereCollider: {fileID: 6086701903343961027}
   bubbleMesh: {fileID: 7177655879654384887}
+  duration: 0.1

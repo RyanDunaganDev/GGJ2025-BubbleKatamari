@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
+using Unity.Mathematics;
 
 [RequireComponent (typeof(SphereCollider))]
 public class BK_BubbleEnemy : MonoBehaviour
@@ -12,8 +15,14 @@ public class BK_BubbleEnemy : MonoBehaviour
     public float HalfScaleFactor { get { return currentScaleFactor / 2f; } }
     public float CurrentVolume { get { return (4f / 3f * Mathf.PI * (sphereCollider.radius * sphereCollider.radius * sphereCollider.radius)); } }
 
+    [Header("Enemy - Death Shader")]
+    private Material mat = null;
+    [SerializeField] private float duration = 0.1f;
+
     private void Awake()
     {
+        mat = GetComponentInChildren<Renderer>().material;
+
         if (sphereCollider == null) { sphereCollider = GetComponent<SphereCollider>(); }
         if (bubbleMesh == null) { bubbleMesh = transform.GetChild(0); }
 
@@ -39,7 +48,7 @@ public class BK_BubbleEnemy : MonoBehaviour
                     BK_GameManager.Instance.AddScore(CurrentVolume);
 
                     // Pop this bubble
-                    Destroy(gameObject);
+                    StartCoroutine(BubbleDeath());
                 }
                 else // Bubble is bigger
                 {
@@ -59,5 +68,23 @@ public class BK_BubbleEnemy : MonoBehaviour
 
         sphereCollider.radius = HalfScaleFactor;
         bubbleMesh.transform.localScale = Vector3.one * TotalScaleFactor;
+    }
+
+    public IEnumerator BubbleDeath()
+    {
+        float count = 0f;
+
+        while (count < duration)
+        {
+            count += Time.deltaTime;
+            float value = math.remap(0f, duration, -1f, 1, count); // -1f to 1f
+            mat.SetFloat("_IsPop", value);
+            Debug.Log($"Value: {value}, {count}");
+            yield return null;
+        }
+
+        yield return null;
+
+        Destroy(gameObject);
     }
 }

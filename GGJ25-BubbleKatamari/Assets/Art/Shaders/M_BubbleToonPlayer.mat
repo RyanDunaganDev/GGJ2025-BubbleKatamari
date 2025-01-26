@@ -124,7 +124,7 @@ Material:
     - _IntersectHeight: 9.8
     - _IntersectLower: 8.7
     - _IntersectStrength: -0.65
-    - _IsPop: -0.38
+    - _IsPop: -1
     - _Metallic: 0
     - _NormalScale: 10
     - _NormalStrength: 0.05
