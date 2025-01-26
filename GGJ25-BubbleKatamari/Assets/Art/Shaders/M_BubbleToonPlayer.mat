@@ -137,6 +137,7 @@ Material:
     - _PearlHueSpeed: 30
     - _PearlScale: 5
     - _PearlStrength: 0.35
+    - _PopScale: 3
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -153,7 +154,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _TransperancyStrength: 0.47
+    - _TransperancyStrength: 0.78
     - _WobbleSize: 1
     - _WobbleSpeed: 0.4
     - _WobbleStrength: 0.05

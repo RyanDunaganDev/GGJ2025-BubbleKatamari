@@ -41,7 +41,7 @@ Material:
     m_Floats:
     - _BlueStrength: 3.58
     - _IsPop: -1
-    - _TransperancyStrength: 0.28
+    - _TransperancyStrength: 1.04
     m_Colors:
     - _ColorMain: {r: 0.8255282, g: 0.4660377, b: 1, a: 0}
     - _ToonColor: {r: 0.103773475, g: 1, b: 0.8597934, a: 0}
