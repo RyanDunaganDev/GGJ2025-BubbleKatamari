@@ -95,7 +95,7 @@ public class BK_BubbleCharacter : MonoBehaviour
         StopBoosting();
 
         // Init size
-        SetScaleFactor(CurrentTargetVolume, true);
+        SetScaleFactor(sphereCollider.radius * 2f, true);
     }
 
     private void FixedUpdate()

@@ -29,7 +29,8 @@ public class BK_BubbleSpline : MonoBehaviour
 
             GameObject newBubble = Instantiate(bubblePrefab, transform);
             newBubble.transform.localPosition = splinePos;
-            newBubble.transform.localScale = Vector3.one * bubbleSizeDistribution.Evaluate(pos);
+            BK_BubbleEnemy bubbleEnemy = newBubble.GetComponent<BK_BubbleEnemy>();
+            bubbleEnemy.SetScaleFactor(bubbleSizeDistribution.Evaluate(pos));
         }
     }
 

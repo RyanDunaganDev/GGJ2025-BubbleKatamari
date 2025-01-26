@@ -3,39 +3,58 @@ using UnityEngine;
 [RequireComponent (typeof(SphereCollider))]
 public class BK_BubbleEnemy : MonoBehaviour
 {
-    private float bubbleVolume = 0f;
-    private float halfRadius = 0f;
-    private float cubedRadius = 0f;
+    [SerializeField] private SphereCollider sphereCollider;
+    [SerializeField] private Transform bubbleMesh;
 
-    private SphereCollider sphereCollider;
+    [Header("Enemy - Scale Factor")]
+    private float currentScaleFactor = 1f;
+    public float TotalScaleFactor { get { return currentScaleFactor; } }
+    public float HalfScaleFactor { get { return currentScaleFactor / 2f; } }
+    public float CurrentVolume { get { return (4f / 3f * Mathf.PI * (sphereCollider.radius * sphereCollider.radius * sphereCollider.radius)); } }
 
     private void Awake()
     {
-        sphereCollider = GetComponent<SphereCollider>();
-        halfRadius = sphereCollider.radius / 2f;
-        cubedRadius = sphereCollider.radius * sphereCollider.radius * sphereCollider.radius;
-        bubbleVolume = (4f / 3f) * Mathf.PI * cubedRadius;
+        if (sphereCollider == null) { sphereCollider = GetComponent<SphereCollider>(); }
+        if (bubbleMesh == null) { bubbleMesh = transform.GetChild(0); }
+
+        SetScaleFactor(sphereCollider.radius * 2f);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             if (other.gameObject.TryGetComponent(out BK_BubbleCharacter bubbleCharacter))
             {
-                if (Vector3.Distance(transform.position, other.transform.position) - bubbleCharacter.HalfScaleFactor < halfRadius)
+                Debug.Log($"Size comp: {bubbleCharacter.CurrentVolume}, {CurrentVolume}");
+
+                // Player is bigger
+                if (bubbleCharacter.CurrentVolume >= CurrentVolume)
                 {
-                    float cumulativeVolume = bubbleVolume + bubbleCharacter.CurrentTargetVolume;
-                    float newRadius = Mathf.Pow(3f * cumulativeVolume / 4f * Mathf.PI, 1f/3f);
+                    float cumulativeVolume = CurrentVolume + bubbleCharacter.CurrentTargetVolume;
+                    float newRadius = Mathf.Pow((3f * cumulativeVolume) / (4f * Mathf.PI), 1f / 3f);
 
-                    bubbleCharacter.SetScaleFactor(newRadius);
+                    bubbleCharacter.SetScaleFactor(newRadius * 2f);
 
-                    BK_GameManager.Instance.AddScore(bubbleVolume);
+                    BK_GameManager.Instance.AddScore(CurrentVolume);
 
                     // Pop this bubble
                     Destroy(gameObject);
                 }
+                else // Bubble is bigger
+                {
+                    // Player loses
+                    Destroy(bubbleCharacter.gameObject);
+                }
             }
         }
+    }
+
+    public void SetScaleFactor(float targetAmount)
+    {
+        currentScaleFactor = targetAmount;
+
+        sphereCollider.radius = HalfScaleFactor;
+        bubbleMesh.transform.localScale = Vector3.one * TotalScaleFactor;
     }
 }
