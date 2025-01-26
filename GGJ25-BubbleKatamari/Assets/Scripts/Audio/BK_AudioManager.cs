@@ -15,6 +15,8 @@ public class BK_AudioManager : MonoBehaviour
 
     [SerializeField] private List<AudioClip> bubblePopSounds;
 
+    [SerializeField] private List<AudioClip> backgroundMusic;
+
     // Static (global) reference to the single existing instance of the object
     private static BK_AudioManager _instance = null;
 
@@ -60,6 +62,8 @@ public class BK_AudioManager : MonoBehaviour
         BK_GameState.Instance.OnGameResumed.AddListener(() => PauseAudio(false));
 
         bgmAudioSource.ignoreListenerPause = true;
+
+        LevelBGM(SceneManager.GetActiveScene().name);
     }
 
     #endregion
@@ -67,6 +71,7 @@ public class BK_AudioManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // TODO: Music blending?
+        LevelBGM(scene.name);
     }
 
     public void PauseAudio(bool pause)
@@ -133,18 +138,42 @@ public class BK_AudioManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(clip, position, Random.Range(volume.x, volume.y));
     }
 
-    public void PlayBGM(AudioClip clip)
+    public void PlayBGM(AudioClip clip, float volume)
     {
         if (bgmAudioSource == null)
             return;
 
-        bgmAudioSource.volume = 1f;
-        bgmAudioSource.pitch = 1f;
+        bgmAudioSource.volume = volume;
 
         // We update the clip 
         bgmAudioSource.clip = clip;
         // We ensure the audio source is stopped before we play it again
         bgmAudioSource.Stop();
         bgmAudioSource.Play();
+    }
+
+    private void LevelBGM(string sceneName)
+    {
+        if (sceneName == BK_Globals.MainMenuSceneName)
+        {
+            StartCoroutine(BlendBGM(backgroundMusic[0], 5f));
+        }
+        else
+        {
+            StartCoroutine(BlendBGM(backgroundMusic[1], 1f));
+        }
+    }
+
+    private IEnumerator BlendBGM(AudioClip newClip, float volume)
+    {
+        float count = 1f;
+        float startVol = bgmAudioSource.volume;
+        while (count > 0f)
+        {
+            count -= Time.deltaTime;
+            bgmAudioSource.volume = count * startVol;
+            yield return null;
+        }
+        PlayBGM(newClip, 1f);
     }
 }
