@@ -23,6 +23,7 @@ public class BK_BubbleCharacter : MonoBehaviour
 
     [Header("Player - Ground Movement")]
     [SerializeField] private float accelerationRate = 60f;      // The speed at which this character accelerates in m/s
+    [SerializeField] private float baseAccelerationRate = 60f;
     [SerializeField] private float decelerationRate = 12f;      // The speed at which this character decelerates in m/s
     [SerializeField] private float maxRollSpeed = 4f;           // The max horizontal speed of this character (when moving) in m/s
     [SerializeField] private float maxBoostSpeed = 7f;          // The max horizontal speed of this character (when boosting) in m/s
@@ -361,7 +362,7 @@ public class BK_BubbleCharacter : MonoBehaviour
 
         if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
 
-        speedChangeCoroutine = UpateMaxSpeed(maxBoostSpeed);
+        speedChangeCoroutine = UpateMaxSpeed(maxBoostSpeed * Mathf.Pow(CurrentVolume, 1 / 3f));
         StartCoroutine(speedChangeCoroutine);
     }
 
@@ -374,7 +375,7 @@ public class BK_BubbleCharacter : MonoBehaviour
 
         if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
 
-        speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+        speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed * Mathf.Pow(CurrentVolume, 1 / 3f));
         StartCoroutine(speedChangeCoroutine);
     }
 
@@ -388,7 +389,7 @@ public class BK_BubbleCharacter : MonoBehaviour
         if (readyToJet)
         {
             isJetting = true;
-            currentMaxSpeed = maxJetSpeed;
+            currentMaxSpeed = maxJetSpeed * Mathf.Pow(CurrentVolume,1/3f);
             rigidbody.AddForce((transform.position - cameraTransform.position).normalized * jetSPEED, ForceMode.VelocityChange);
 
             //Start our jet cooldown
@@ -405,7 +406,7 @@ public class BK_BubbleCharacter : MonoBehaviour
         {
             if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
 
-            speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+            speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed * Mathf.Pow(CurrentVolume, 1 / 3f));
             StartCoroutine(speedChangeCoroutine);
 
             isJetting = false;
@@ -464,7 +465,7 @@ public class BK_BubbleCharacter : MonoBehaviour
 
             if (speedChangeCoroutine != null) { StopCoroutine(speedChangeCoroutine); }
 
-            speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed);
+            speedChangeCoroutine = UpateMaxSpeed(maxRollSpeed * Mathf.Pow(CurrentVolume, 1 / 3f));
             StartCoroutine(speedChangeCoroutine);
             isJetting = false;
             readyToJet = true;
@@ -605,7 +606,7 @@ public class BK_BubbleCharacter : MonoBehaviour
     public void SetScaleFactor(float targetAmount, bool immediate = false)
     {
         currentScaleFactor = targetAmount;
-
+        accelerationRate = baseAccelerationRate * Mathf.Pow(targetAmount, 1 / 3f);
         if (immediate)
         {
             sphereCollider.radius = HalfScaleFactor;
