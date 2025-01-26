@@ -82,7 +82,6 @@ public class BK_BubbleEnemy : MonoBehaviour
             count += Time.deltaTime;
             float value = math.remap(0f, duration, -1f, 1, count); // -1f to 1f
             mat.SetFloat("_IsPop", value);
-            Debug.Log($"Value: {value}, {count}");
             yield return null;
         }
 
