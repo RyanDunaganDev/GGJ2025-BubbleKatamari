@@ -30,7 +30,7 @@ Preset:
     objectReference: {fileID: 6366694096173105546, guid: 6aa246fba414e914b9b8b9c7212e5a77, type: 3}
   - target: {fileID: 0}
     propertyPath: numBubbles
-    value: 25
+    value: 10
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: bubblePositionDistribution.m_Curve.Array.size
@@ -122,7 +122,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: bubbleSizeDistribution.m_Curve.Array.data[0].value
-    value: 8
+    value: 0.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: bubbleSizeDistribution.m_Curve.Array.data[0].inSlope
@@ -154,7 +154,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: bubbleSizeDistribution.m_Curve.Array.data[1].value
-    value: 8
+    value: 0.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: bubbleSizeDistribution.m_Curve.Array.data[1].inSlope
