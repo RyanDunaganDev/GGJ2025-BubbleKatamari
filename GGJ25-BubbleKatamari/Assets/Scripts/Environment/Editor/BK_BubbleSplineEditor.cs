@@ -18,6 +18,12 @@ public class BK_BubbleSplineEditor : UnityEditor.Editor
             EditorUtility.SetDirty(target);
         }
 
+        //if (GUILayout.Button("Align Spline to Ground"))
+        //{
+        //    (target as BK_BubbleSpline).AlignSplineToGround();
+        //    EditorUtility.SetDirty(target);
+        //}
+
         base.OnInspectorGUI();
     }
 }

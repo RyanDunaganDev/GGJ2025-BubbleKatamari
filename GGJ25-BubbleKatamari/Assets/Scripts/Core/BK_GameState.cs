@@ -15,7 +15,7 @@ public class BK_GameState : MonoBehaviour
     public bool IsPaused { get { return isPaused; } }
 
     private float gameScore = 0f;
-    private float gameTime = 60f;
+    private float gameTime = 300f;
 
     // Here we can have UnityEvents that fire when our game changes to specific states. Other
     // objects can then listen to these events and execute code when they're invoked.
@@ -164,7 +164,7 @@ public class BK_GameState : MonoBehaviour
         Time.timeScale = 1f;
 
         gameScore = 0f;
-        gameTime = 60f;
+        gameTime = 300f;
 
         // Clear all events
         OnGamePaused.RemoveAllListeners();
