@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
@@ -5,15 +6,14 @@ using UnityEngine.UIElements;
 
 public class BK_HUD : BK_MasterUI
 {
-    [SerializeField] private string areaName;
-
     private VisualElement root; // The element at the root of the hierarchy
-    private Label areaNameLabel; // The Label in the top left
 
     private Label timeLabelMinutes;
     private Label timeLabelSeconds;
     private Label timeLabelMS;
     private Label scoreLabel;
+
+    private Label centerMessage;
 
     private void OnEnable()
     {
@@ -27,12 +27,15 @@ public class BK_HUD : BK_MasterUI
         timeLabelSeconds = root.Q<Label>("time-label-seconds");
         timeLabelMS = root.Q<Label>("time-label-ms");
         scoreLabel = root.Q<Label>("score-label");
+
+        centerMessage = root.Q<Label>("center-message");
     }
 
     private void Start()
     {
         BK_GameState.Instance.OnScoreChanged.AddListener(UpdateScore);
         BK_GameState.Instance.OnTimerChanged.AddListener(UpdateTime);
+        BK_GameState.Instance.OnGameInitializing.AddListener(GameInitMessage);
 
         UpdateScore(0f);
         UpdateTime(0f);
@@ -42,6 +45,7 @@ public class BK_HUD : BK_MasterUI
     {
         BK_GameState.Instance.OnScoreChanged.RemoveListener(UpdateScore);
         BK_GameState.Instance.OnTimerChanged.RemoveListener(UpdateTime);
+        BK_GameState.Instance.OnGameInitializing.RemoveListener(GameInitMessage);
     }
 
     private void UpdateScore(float newScore)
@@ -57,5 +61,29 @@ public class BK_HUD : BK_MasterUI
         timeLabelMinutes.text = minutes.ToString("00");
         timeLabelSeconds.text = seconds.ToString("00");
         timeLabelMS.text = milliseconds.ToString("00");
+    }
+
+    private void GameInitMessage()
+    {
+        Debug.Log("Game Start HUD");
+        StartCoroutine(InitMessageCoroutine());
+    }
+
+    private IEnumerator InitMessageCoroutine()
+    {
+        centerMessage.style.visibility = Visibility.Visible;
+
+        centerMessage.text = "3...";
+        yield return new WaitForSeconds(1f);
+        centerMessage.text = "2...";
+        yield return new WaitForSeconds(1f);
+        centerMessage.text = "1...";
+        yield return new WaitForSeconds(1f);
+        centerMessage.text = "Go!";
+        yield return new WaitForSeconds(1f);
+
+        centerMessage.style.visibility = Visibility.Hidden;
+
+        BK_GameManager.Instance.StartGame();
     }
 }

@@ -1,4 +1,5 @@
-using Unity.VisualScripting;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -22,7 +23,8 @@ public class BK_GameState : MonoBehaviour
     // You can also use the native C# "Action" type for events, but UnityEvents can also be configured in the Editor
     public UnityEvent OnGamePaused;
     public UnityEvent OnGameResumed;
-    public UnityEvent OnGamePlaying;
+    public UnityEvent OnGameInitializing;
+    public UnityEvent OnGameInProgress;
     public UnityEvent OnPlayerLost;
 
     public UnityEvent<float> OnScoreChanged;
@@ -111,8 +113,11 @@ public class BK_GameState : MonoBehaviour
         CurrentGameStatus = newGameStatus;
         switch (newGameStatus)
         {
+            case GameStatus.GameInitializing:
+                OnGameInitializing?.Invoke();
+                break;
             case GameStatus.InProgress:
-                OnGamePlaying?.Invoke();
+                OnGameInProgress?.Invoke();
                 break;
             case GameStatus.TimeExpired:
                 OnTimeExpired?.Invoke();
@@ -144,7 +149,6 @@ public class BK_GameState : MonoBehaviour
 
         OnTimerChanged?.Invoke(gameTime);
 
-
         if (gameTime <= 0f)
         {
             gameTime = 0f;
@@ -169,17 +173,29 @@ public class BK_GameState : MonoBehaviour
         // Clear all events
         OnGamePaused.RemoveAllListeners();
         OnGameResumed.RemoveAllListeners();
-        OnGamePlaying.RemoveAllListeners();
+        OnGameInProgress.RemoveAllListeners();
         OnPlayerLost.RemoveAllListeners();
         OnTimeExpired.RemoveAllListeners();
     }
 
+    // Called after awake and start
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        ResetGameState();
+
+        StartCoroutine(DelayInit(scene, mode));
+    }
+
+    private IEnumerator DelayInit(Scene scene, LoadSceneMode mode)
+    {
+        yield return null;
+        yield return null;
+
         // If this is the Main Menu scene, Reset the GameState
-        //if (scene.name == BK_Globals.MainMenuSceneName)
+        //if (scene.name != BK_Globals.MainMenuSceneName)
         //{
-            ResetGameState();
+            // Start the game
+            UpdateGameStatus(GameStatus.GameInitializing);
         //}
     }
 
@@ -191,6 +207,7 @@ public class BK_GameState : MonoBehaviour
 // We can track the state of our game with a handy enum we'll call GameState.
 public enum GameStatus
 {
+    GameInitializing,     // The game is in progress
     InProgress,     // The game is in progress
     TimeExpired,      // The player has won the game
     PlayerLost      // The player has lost the game

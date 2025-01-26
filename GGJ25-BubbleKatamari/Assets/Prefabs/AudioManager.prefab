@@ -51,7 +51,12 @@ MonoBehaviour:
   volume: {x: 5, y: 6}
   pitch: {x: 0.6, y: 1.4}
   bubblePopSounds:
-  - {fileID: 8300000, guid: baa5da9a3499b2a43902556326a2001b, type: 3}
+  - {fileID: 8300000, guid: ead21d60565c6da4cbb9d2b3a2fee5ea, type: 3}
+  - {fileID: 8300000, guid: 37752c9fed1ec1b4aa8eae220ff69a17, type: 3}
+  - {fileID: 8300000, guid: 3aea60240db5f3d40b17ee7e306b7508, type: 3}
+  - {fileID: 8300000, guid: a1a9b6455b750d947ad7a48478fe7a7a, type: 3}
+  - {fileID: 8300000, guid: 55f021360760d4249b80655c06b3f3b0, type: 3}
+  - {fileID: 8300000, guid: 7b02f5d2b279d1249ad065b009688c1b, type: 3}
 --- !u!82 &4863182064434521872
 AudioSource:
   m_ObjectHideFlags: 0
