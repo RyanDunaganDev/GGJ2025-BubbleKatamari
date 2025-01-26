@@ -35,7 +35,7 @@
     scale: 1.1 1.1;
 }
 
-.mainmenu-start:focus {
+.mainmenu-start:active {
     position: absolute;
     bottom: 351px;
     width: 444px;
@@ -67,7 +67,7 @@
     scale: 1.1 1.1;
 }
 
-.mainmenu-quit:focus {
+.mainmenu-quit:active {
     position: absolute;
     bottom: 61px;
     width: 357px;
@@ -101,7 +101,7 @@
     scale: 1.1 1.1;
 }
 
-.mainmenu-credits:focus {
+.mainmenu-credits:active {
     width: 349px;
     height: 243px;
     background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Credits_Click.png?fileID=2800000&guid=1ade0b86a71b2c547bfb7ad6ed03aaba&type=3#MM_Credits_Click");
@@ -136,7 +136,7 @@
     scale: 1.1 1.1;
 }
 
-.mainmenu-settings:focus {
+.mainmenu-settings:active {
     width: 397px;
     height: 229px;
     background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Settings_Click.png?fileID=2800000&guid=4477123602f7bd9448e36827fff04bb3&type=3#MM_Settings_Click");
@@ -146,4 +146,157 @@
     transition-property: scale;
     transition-duration: 0.25s;
     scale: 1.1 1.1;
+}
+
+.pausemenu-resume {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume_Idle.png?fileID=2800000&guid=3d24f542305ce434daec81dbc7110bec&type=3#PM_Resume_Idle");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-resume:hover {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume_Idle.png?fileID=2800000&guid=3d24f542305ce434daec81dbc7110bec&type=3#PM_Resume_Idle");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-resume:active {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume_click.png?fileID=2800000&guid=c5b537caed341e74a92349f4cb55a3f3&type=3#PM_Resume_click");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-mainmenu {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu_Idle.png?fileID=2800000&guid=3d8d7f15209483042b6ad1b52029cba9&type=3#PM_Main_Menu_Idle");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-mainmenu:hover {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu_Idle.png?fileID=2800000&guid=3d8d7f15209483042b6ad1b52029cba9&type=3#PM_Main_Menu_Idle");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-mainmenu:active {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu_click.png?fileID=2800000&guid=9989c210b7c6acc46acc25feadaff66a&type=3#PM_Main_Menu_click");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-quit {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit_Idle.png?fileID=2800000&guid=26970752593e0754c9d1be625cc6760b&type=3#PM_Quit_Idle");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-quit:hover {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit_Idle.png?fileID=2800000&guid=26970752593e0754c9d1be625cc6760b&type=3#PM_Quit_Idle");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-quit:active {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit_click.png?fileID=2800000&guid=478e8ec7a13ed3d409f16208cfe4f94c&type=3#PM_Quit_click");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
 }
