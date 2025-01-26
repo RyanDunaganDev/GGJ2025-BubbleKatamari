@@ -151,7 +151,7 @@
 .pausemenu-resume {
     flex-grow: 1;
     font-size: 36px;
-    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume_Idle.png?fileID=2800000&guid=3d24f542305ce434daec81dbc7110bec&type=3#PM_Resume_Idle");
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume.png?fileID=2800000&guid=3d24f542305ce434daec81dbc7110bec&type=3#PM_Resume");
     width: 60%;
     padding-top: 4px;
     padding-right: 4px;
@@ -168,7 +168,7 @@
 .pausemenu-resume:hover {
     flex-grow: 1;
     font-size: 36px;
-    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume_Idle.png?fileID=2800000&guid=3d24f542305ce434daec81dbc7110bec&type=3#PM_Resume_Idle");
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume.png?fileID=2800000&guid=3d24f542305ce434daec81dbc7110bec&type=3#PM_Resume");
     width: 60%;
     padding-top: 4px;
     padding-right: 4px;
@@ -204,7 +204,7 @@
 .pausemenu-mainmenu {
     flex-grow: 1;
     width: 60%;
-    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu_Idle.png?fileID=2800000&guid=3d8d7f15209483042b6ad1b52029cba9&type=3#PM_Main_Menu_Idle");
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu.png?fileID=2800000&guid=3d8d7f15209483042b6ad1b52029cba9&type=3#PM_Main_Menu");
     padding-top: 4px;
     padding-right: 4px;
     padding-bottom: 4px;
@@ -220,7 +220,7 @@
 .pausemenu-mainmenu:hover {
     flex-grow: 1;
     width: 60%;
-    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu_Idle.png?fileID=2800000&guid=3d8d7f15209483042b6ad1b52029cba9&type=3#PM_Main_Menu_Idle");
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu.png?fileID=2800000&guid=3d8d7f15209483042b6ad1b52029cba9&type=3#PM_Main_Menu");
     padding-top: 4px;
     padding-right: 4px;
     padding-bottom: 4px;
@@ -254,7 +254,7 @@
 .pausemenu-quit {
     flex-grow: 1;
     width: 60%;
-    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit_Idle.png?fileID=2800000&guid=26970752593e0754c9d1be625cc6760b&type=3#PM_Quit_Idle");
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit.png?fileID=2800000&guid=26970752593e0754c9d1be625cc6760b&type=3#PM_Quit");
     padding-top: 4px;
     padding-right: 4px;
     padding-bottom: 4px;
@@ -270,7 +270,7 @@
 .pausemenu-quit:hover {
     flex-grow: 1;
     width: 60%;
-    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit_Idle.png?fileID=2800000&guid=26970752593e0754c9d1be625cc6760b&type=3#PM_Quit_Idle");
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit.png?fileID=2800000&guid=26970752593e0754c9d1be625cc6760b&type=3#PM_Quit");
     padding-top: 4px;
     padding-right: 4px;
     padding-bottom: 4px;
@@ -299,4 +299,57 @@
     scale: 1.1 1.1;
     transition-property: scale;
     transition-duration: 0.25s;
+}
+
+.gameover-playagain {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/GameOverScreen/GO_Play_Again.png?fileID=2800000&guid=ed9ade32373dd1e4fbab7a0eb69e1d5a&type=3#GO_Play_Again");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.gameover-playagain:hover {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/GameOverScreen/GO_Play_Again.png?fileID=2800000&guid=ed9ade32373dd1e4fbab7a0eb69e1d5a&type=3#GO_Play_Again");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.gameover-playagain:active {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/GameOverScreen/GO_Play_Again_Click.png?fileID=2800000&guid=1d641fd4ceace9540a68e3c8888dc7fc&type=3#GO_Play_Again_Click");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
 }

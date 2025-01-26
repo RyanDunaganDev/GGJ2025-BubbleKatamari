@@ -17,9 +17,6 @@ public class BK_GameState : MonoBehaviour
     private float gameScore = 0f;
     private float gameTime = 60f;
 
-    // The name of the Main Menu scene, so we know if we loaded into it
-    [SerializeField] private string mainMenuSceneName = "MainMenu";
-
     // Here we can have UnityEvents that fire when our game changes to specific states. Other
     // objects can then listen to these events and execute code when they're invoked.
     // You can also use the native C# "Action" type for events, but UnityEvents can also be configured in the Editor
@@ -180,10 +177,10 @@ public class BK_GameState : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // If this is the Main Menu scene, Reset the GameState
-        if (scene.name == mainMenuSceneName)
-        {
+        //if (scene.name == BK_Globals.MainMenuSceneName)
+        //{
             ResetGameState();
-        }
+        //}
     }
 
     #endregion

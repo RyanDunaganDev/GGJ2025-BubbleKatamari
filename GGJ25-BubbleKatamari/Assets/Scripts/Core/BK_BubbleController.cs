@@ -43,6 +43,8 @@ public class BK_BubbleController : MonoBehaviour
 
         BK_GameState.Instance.OnTimeExpired.RemoveListener(OnTimeExpiredReceived);
         BK_GameState.Instance.OnPlayerLost.RemoveListener(OnPlayerLostReceived);
+
+        playerInputActions.Dispose();
     }
 
     private void OnEnable()
@@ -220,7 +222,7 @@ public class BK_BubbleController : MonoBehaviour
 
     private void OnPlayerLostReceived()
     {
-        SwitchActionMap("Player");
+        SwitchActionMap("UI");
     }
 
     #endregion
