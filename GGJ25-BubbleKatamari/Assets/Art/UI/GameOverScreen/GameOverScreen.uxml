@@ -1,0 +1,14 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/UI/BK_Styles.uss?fileID=7433441132597879392&amp;guid=f60ddf02dc9c69f4fa538b2b4214a328&amp;type=3#BK_Styles" />
+    <engine:VisualElement name="overlay" style="flex-grow: 1; align-items: center; justify-content: center; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(31, 31, 31, 0.25);">
+        <engine:VisualElement name="gameover-container" style="width: 600px; height: 950px; background-color: rgba(255, 255, 255, 0); padding-top: 32px; padding-right: 32px; padding-bottom: 32px; padding-left: 32px; background-image: url(&quot;project://database/Assets/Art/UI/PauseMenu/PM_Background.png?fileID=2800000&amp;guid=b20c6ce2d1542a24098db23799b40650&amp;type=3#PM_Background&quot;); align-items: center;">
+            <engine:VisualElement name="gameover-logo" style="background-image: url(&quot;project://database/Assets/Art/UI/GameOverScreen/GO_Game_Over.png?fileID=2800000&amp;guid=56e17b65871cee8438cb20ebf684ace0&amp;type=3#GO_Game_Over&quot;); width: 95%; height: 150px;" />
+            <engine:Button name="playagain-button" class="mainmenu-button gameover-playagain" style="width: 75%; height: 120px;" />
+            <engine:Button name="mainmenu-button" class="mainmenu-button pausemenu-mainmenu" style="width: 60%;" />
+            <engine:Button name="quit-button" class="mainmenu-button pausemenu-quit" style="width: 60%;" />
+            <engine:VisualElement name="duck" style="background-image: url(&quot;project://database/Assets/Art/UI/PauseMenu/PM_Duck.png?fileID=2800000&amp;guid=6e522738c29dc09428de3be8397b05ff&amp;type=3#PM_Duck&quot;); width: 150px; height: 150px;">
+                <engine:VisualElement name="party-hat" style="background-image: url(&quot;project://database/Assets/Art/UI/GameOverScreen/GO_Party_hat.png?fileID=2800000&amp;guid=da4ba06eaee07d4478a85a3bca0fc372&amp;type=3#GO_Party_hat&quot;); width: 40px; height: 65px; top: -53px; left: 33px;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

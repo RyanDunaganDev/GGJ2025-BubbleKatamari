@@ -147,7 +147,7 @@ public class BK_LoadingScreenManager : MonoBehaviour
         if (async)
         {
             Debug.Log($"Loading scene {targetSceneName} Asynchronously!");
-            StartCoroutine(LoadSceneAsynchronous());
+            StartCoroutine(LoadSceneAsynchronous(targetSceneName == BK_Globals.MainMenuSceneName));
         }
         else
         {
@@ -244,7 +244,7 @@ public class BK_LoadingScreenManager : MonoBehaviour
         SceneManager.LoadScene(targetSceneName);
     }
 
-    private IEnumerator LoadSceneAsynchronous()
+    private IEnumerator LoadSceneAsynchronous(bool allowInstantLoad = false)
     {
         isLoadingScene = true;
 
@@ -261,6 +261,9 @@ public class BK_LoadingScreenManager : MonoBehaviour
 
         // Show the loading screen
         yield return ShowLoadingScreen();
+
+        // Skip load waiting after fade
+        asyncLoadOperation.allowSceneActivation = allowInstantLoad;
 
         // Add 2 seconds of artificial loading time since the scene load is almost instant
         yield return new WaitForSeconds(fakeAsyncDelay);

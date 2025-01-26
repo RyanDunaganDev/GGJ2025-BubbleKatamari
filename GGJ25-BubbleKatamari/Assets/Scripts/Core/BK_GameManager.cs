@@ -54,11 +54,7 @@ public class BK_GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Tick timer while game is playing
-        if (gameState.CurrentGameStatus == GameStatus.InProgress)
-        {
-            TickTimer();
-        }
+        TickTimer();
     }
 
     #endregion
@@ -73,6 +69,9 @@ public class BK_GameManager : MonoBehaviour
     // This function is called by some external script in order to set the game state to paused.
     public void PauseGame()
     {
+        // Don't pause if the game is already over
+        if (gameState.CurrentGameStatus == GameStatus.PlayerLost || gameState.CurrentGameStatus == GameStatus.TimeExpired) { return; }
+
         // Update the paused value in the GameState
         gameState.PauseGame();
 
@@ -87,6 +86,9 @@ public class BK_GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        // Don't resume if the game is already over
+        if (gameState.CurrentGameStatus == GameStatus.PlayerLost || gameState.CurrentGameStatus == GameStatus.TimeExpired) { return; }
+
         // Update the paused value in the GameState
         gameState.ResumeGame();
 
@@ -105,13 +107,6 @@ public class BK_GameManager : MonoBehaviour
         else { PauseGame(); }
     }
 
-    public void PlayerWon()
-    {
-        // Update the Game's Status in the GameState
-        gameState.UpdateGameStatus(GameStatus.PlayerWon);
-        Debug.Log("Player won!");
-    }
-
     public void PlayerLost()
     {
         // Update the Game's Status in the GameState
@@ -126,8 +121,11 @@ public class BK_GameManager : MonoBehaviour
 
     private void TickTimer()
     {
-        // TODO: Flip timer to count down and init timer value
-        gameState.TickTimer(Time.deltaTime);
+        // Tick timer while game is playing
+        if (gameState.CurrentGameStatus == GameStatus.InProgress)
+        {
+            gameState.TickTimer(-Time.deltaTime);
+        }
     }
 
     #endregion

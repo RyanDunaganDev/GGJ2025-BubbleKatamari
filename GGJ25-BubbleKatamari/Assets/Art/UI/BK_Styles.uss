@@ -1,0 +1,355 @@
+.mainmenu-button {
+    background-color: rgba(255, 255, 255, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.mainmenu-start {
+    position: absolute;
+    bottom: 351px;
+    width: 444px;
+    height: 233px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start.png?fileID=2800000&guid=a89e6d30f688ed64981926663ad343bc&type=3#MM_Start");
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.mainmenu-start:hover {
+    position: absolute;
+    bottom: 351px;
+    width: 444px;
+    height: 233px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start.png?fileID=2800000&guid=a89e6d30f688ed64981926663ad343bc&type=3#MM_Start");
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-start:active {
+    position: absolute;
+    bottom: 351px;
+    width: 444px;
+    height: 233px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start_Click.png?fileID=2800000&guid=1e09255e6a715db4c9efe00678180f73&type=3#MM_Start_Click");
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-quit {
+    position: absolute;
+    bottom: 61px;
+    width: 357px;
+    height: 216px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit.png?fileID=2800000&guid=c9f8c9865e298c74f93a02af0eae7bae&type=3#MM_Exit");
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.mainmenu-quit:hover {
+    position: absolute;
+    bottom: 61px;
+    width: 357px;
+    height: 216px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit.png?fileID=2800000&guid=c9f8c9865e298c74f93a02af0eae7bae&type=3#MM_Exit");
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-quit:active {
+    position: absolute;
+    bottom: 61px;
+    width: 357px;
+    height: 216px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit_Click.png?fileID=2800000&guid=28e2e59b57212434d8256ba59b423e8a&type=3#MM_Exit_Click");
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-credits {
+    width: 349px;
+    height: 243px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Credits.png?fileID=2800000&guid=36c842b7a957baf4fbf37c0519cb79e9&type=3#MM_Credits");
+    bottom: 47px;
+    right: 299px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.mainmenu-credits:hover {
+    width: 349px;
+    height: 243px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Credits.png?fileID=2800000&guid=36c842b7a957baf4fbf37c0519cb79e9&type=3#MM_Credits");
+    bottom: 47px;
+    right: 299px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-credits:active {
+    width: 349px;
+    height: 243px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Credits_Click.png?fileID=2800000&guid=1ade0b86a71b2c547bfb7ad6ed03aaba&type=3#MM_Credits_Click");
+    bottom: 47px;
+    right: 299px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-settings {
+    width: 397px;
+    height: 229px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Settings.png?fileID=2800000&guid=0bdd61e7d14abe24bbe3d69dfcde143c&type=3#MM_Settings");
+    bottom: 47px;
+    left: 256px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.mainmenu-settings:hover {
+    width: 397px;
+    height: 229px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Settings.png?fileID=2800000&guid=0bdd61e7d14abe24bbe3d69dfcde143c&type=3#MM_Settings");
+    bottom: 47px;
+    left: 256px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.mainmenu-settings:active {
+    width: 397px;
+    height: 229px;
+    background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Settings_Click.png?fileID=2800000&guid=4477123602f7bd9448e36827fff04bb3&type=3#MM_Settings_Click");
+    bottom: 47px;
+    left: 256px;
+    position: absolute;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.pausemenu-resume {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume.png?fileID=2800000&guid=3d24f542305ce434daec81dbc7110bec&type=3#PM_Resume");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-resume:hover {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume.png?fileID=2800000&guid=3d24f542305ce434daec81dbc7110bec&type=3#PM_Resume");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-resume:active {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Resume_click.png?fileID=2800000&guid=c5b537caed341e74a92349f4cb55a3f3&type=3#PM_Resume_click");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-mainmenu {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu.png?fileID=2800000&guid=3d8d7f15209483042b6ad1b52029cba9&type=3#PM_Main_Menu");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-mainmenu:hover {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu.png?fileID=2800000&guid=3d8d7f15209483042b6ad1b52029cba9&type=3#PM_Main_Menu");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-mainmenu:active {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Main_Menu_click.png?fileID=2800000&guid=9989c210b7c6acc46acc25feadaff66a&type=3#PM_Main_Menu_click");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-quit {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit.png?fileID=2800000&guid=26970752593e0754c9d1be625cc6760b&type=3#PM_Quit");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-quit:hover {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit.png?fileID=2800000&guid=26970752593e0754c9d1be625cc6760b&type=3#PM_Quit");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.pausemenu-quit:active {
+    flex-grow: 1;
+    width: 60%;
+    background-image: url("project://database/Assets/Art/UI/PauseMenu/PM_Quit_click.png?fileID=2800000&guid=478e8ec7a13ed3d409f16208cfe4f94c&type=3#PM_Quit_click");
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.gameover-playagain {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/GameOverScreen/GO_Play_Again.png?fileID=2800000&guid=ed9ade32373dd1e4fbab7a0eb69e1d5a&type=3#GO_Play_Again");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+}
+
+.gameover-playagain:hover {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/GameOverScreen/GO_Play_Again.png?fileID=2800000&guid=ed9ade32373dd1e4fbab7a0eb69e1d5a&type=3#GO_Play_Again");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
+
+.gameover-playagain:active {
+    flex-grow: 1;
+    font-size: 36px;
+    background-image: url("project://database/Assets/Art/UI/GameOverScreen/GO_Play_Again_Click.png?fileID=2800000&guid=1d641fd4ceace9540a68e3c8888dc7fc&type=3#GO_Play_Again_Click");
+    width: 60%;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    scale: 1.1 1.1;
+}
