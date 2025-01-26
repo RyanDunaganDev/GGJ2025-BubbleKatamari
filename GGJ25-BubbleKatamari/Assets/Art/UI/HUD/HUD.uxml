@@ -1,0 +1,4 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="time-container" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px;" />
+    <engine:VisualElement name="score-container" style="position: absolute; top: 0; left: auto; right: 0; bottom: auto; width: 400px; height: 400px;" />
+</engine:UXML>
