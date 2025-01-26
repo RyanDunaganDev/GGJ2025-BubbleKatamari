@@ -65,21 +65,11 @@ public class BK_MainMenu : BK_MasterUI
         creditsButton.style.scale = new StyleScale(V2Wobble(0.6f, 0.9f));
         settingsButton.style.scale = new StyleScale(V2Wobble(0.9f, 1.2f));
 
-        float xOff = 25f;
-        float yOff = 15f;
-        titleLogo.style.translate = new StyleTranslate(new Translate(new Length((Mathf.PerlinNoise1D(Time.time * 0.3f) * 2f - 1f) * xOff * 2f), new Length((Mathf.PerlinNoise1D(Time.time * 0.15f) * 2f - 1f) * yOff * 2f)));
-        startButton.style.translate = new StyleTranslate(new Translate(new Length((Mathf.PerlinNoise1D((Time.time + 2f) * 0.3f) * 2f - 1f) * xOff), new Length((Mathf.PerlinNoise1D((Time.time + 3f) * 0.15f) * 2f - 1f) * yOff)));
-        quitButton.style.translate = new StyleTranslate(new Translate(new Length((Mathf.PerlinNoise1D((Time.time + 9f) * 0.3f) * 2f - 1f) * xOff), new Length((Mathf.PerlinNoise1D((Time.time + 12f) * 0.15f) * 2f - 1f) * yOff)));
-        creditsButton.style.translate = new StyleTranslate(new Translate(new Length((Mathf.PerlinNoise1D((Time.time + 6f) * 0.3f) * 2f - 1f) * xOff), new Length((Mathf.PerlinNoise1D((Time.time + 9f) * 0.15f) * 2f - 1f) * yOff)));
-        settingsButton.style.translate = new StyleTranslate(new Translate(new Length((Mathf.PerlinNoise1D((Time.time + 4f) * 0.3f) * 2f - 1f) * xOff), new Length((Mathf.PerlinNoise1D((Time.time + 6f) * 0.15f) * 2f - 1f) * yOff)));
-    }
-
-    private Vector2 V2Wobble(float offsetX, float offsetY, float totalScale = 0.025f)
-    {
-        float xScl = Mathf.Sin((Time.time + offsetX) * 2f);
-        float yScl = Mathf.Cos((Time.time + offsetY));
-
-        return new Vector2(math.remap(-1f, 1f, 0.8f, 1f, xScl), math.remap(-1f, 1f, 1f - totalScale, 1f, yScl));
+        titleLogo.style.translate = new StyleTranslate(V2Translate(0.3f, 0.15f, 25f, 15f, 2f));
+        startButton.style.translate = new StyleTranslate(V2Translate(2f, 3f, 25f, 15f));
+        quitButton.style.translate =new StyleTranslate(V2Translate(9f, 12f, 25f, 15f));
+        creditsButton.style.translate = new StyleTranslate(V2Translate(6f, 9f, 25f, 15f));
+        settingsButton.style.translate = new StyleTranslate(V2Translate(4f, 6f, 25f, 15f));
     }
 
     private void StartGame(ClickEvent evt)

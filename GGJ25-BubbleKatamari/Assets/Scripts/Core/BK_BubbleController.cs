@@ -59,7 +59,7 @@ public class BK_BubbleController : MonoBehaviour
         SubscribeInputActions();
 
         // We need to enable our "Player" action map so Unity will listen for our input
-        SwitchActionMap();
+        SwitchActionMap("LockMouse");
     }
 
     private void OnDisable()
@@ -148,10 +148,16 @@ public class BK_BubbleController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 break;
 
-            default:
+            case "LockMouse":
                 // Show the mouse cursor
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                break;
+
+            default:
+                // Show the mouse cursor
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 break;
         }
     }

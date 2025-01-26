@@ -9,9 +9,11 @@ public class BK_PauseMenu : BK_MasterUI
     #region Variables
 
     private VisualElement root;  // Root visual element of the UI Document
+    private VisualElement titleLogo;
     private Button resumeButton;
     private Button mainmenuButton;
     private Button quitButton;
+    private VisualElement duck;
 
     #endregion
 
@@ -23,9 +25,11 @@ public class BK_PauseMenu : BK_MasterUI
         root = GetComponent<UIDocument>().rootVisualElement;
 
         // Then we get our buttons by querying (that's what the Q() stands for) the root.
+        titleLogo = root.Q<VisualElement>("pause-logo");
         resumeButton = root.Q<Button>("resume-button");
         mainmenuButton = root.Q<Button>("mainmenu-button");
         quitButton = root.Q<Button>("quit-button");
+        duck = root.Q<VisualElement>("duck");
 
         // Once we have references to our buttons, we subscribe functions to their clicked events.
         resumeButton.RegisterCallback<ClickEvent>(ResumeButtonPressed);
@@ -58,6 +62,21 @@ public class BK_PauseMenu : BK_MasterUI
 
         // Initialize our pause menu to not be visible, since the game is not paused when a level loads
         ReceivedOnGameResumed();
+    }
+
+    private void Update()
+    {
+        titleLogo.style.scale = new StyleScale(V2Wobble(0f, 0f, 0.2f));
+        resumeButton.style.scale = new StyleScale(V2Wobble(0.2f, 0.3f));
+        mainmenuButton.style.scale = new StyleScale(V2Wobble(0.4f, 0.6f));
+        quitButton.style.scale = new StyleScale(V2Wobble(0.6f, 0.9f));
+        duck.style.scale = new StyleScale(V2Wobble(0.9f, 1.2f));
+
+        titleLogo.style.translate = new StyleTranslate(V2Translate(0.3f, 0.15f, 15f, 10f, 2f));
+        resumeButton.style.translate = new StyleTranslate(V2Translate(2f, 3f, 15f, 10f));
+        mainmenuButton.style.translate = new StyleTranslate(V2Translate(9f, 12f, 15f, 10f));
+        quitButton.style.translate = new StyleTranslate(V2Translate(6f, 9f, 15f, 10f));
+        duck.style.translate = new StyleTranslate(V2Translate(4f, 6f, 25f, 15f));
     }
 
     private void OnDestroy()

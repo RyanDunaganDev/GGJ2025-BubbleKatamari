@@ -8,6 +8,9 @@ public class BK_HUD : BK_MasterUI
 {
     private VisualElement root; // The element at the root of the hierarchy
 
+    private VisualElement scoreContainer;
+    private VisualElement timeContainer;
+
     private Label timeLabelMinutes;
     private Label timeLabelSeconds;
     private Label timeLabelMS;
@@ -19,6 +22,9 @@ public class BK_HUD : BK_MasterUI
     {
         // We first get the root visual element from the UIDocument component.
         root = GetComponent<UIDocument>().rootVisualElement;
+
+        scoreContainer = root.Q<VisualElement>("score-container");
+        timeContainer = root.Q<VisualElement>("time-container");
 
         // Then we get our VisualElement refs by querying (Q<T>(...) finds a single matching UI Element)
         // We can also use Query<T>(...) to get all matching UI Elements
@@ -39,6 +45,15 @@ public class BK_HUD : BK_MasterUI
 
         UpdateScore(0f);
         UpdateTime(0f);
+    }
+
+    private void Update()
+    {
+        scoreContainer.style.scale = new StyleScale(V2Wobble(0.2f, 0.3f));
+        timeContainer.style.scale = new StyleScale(V2Wobble(0.4f, 0.6f));
+
+        scoreContainer.style.translate = new StyleTranslate(V2Translate(2f, 3f, 15f, 10f));
+        timeContainer.style.translate = new StyleTranslate(V2Translate(9f, 12f, 15f, 10f));
     }
 
     private void OnDestroy()
