@@ -20,8 +20,8 @@
     width: 444px;
     height: 233px;
     background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start.png?fileID=2800000&guid=a89e6d30f688ed64981926663ad343bc&type=3#MM_Start");
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .mainmenu-start:hover {
@@ -30,8 +30,8 @@
     width: 444px;
     height: 233px;
     background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start.png?fileID=2800000&guid=a89e6d30f688ed64981926663ad343bc&type=3#MM_Start");
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
     -unity-background-image-tint-color: rgb(225, 225, 225);
 }
 
@@ -41,8 +41,8 @@
     width: 444px;
     height: 233px;
     background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Start_Click.png?fileID=2800000&guid=1e09255e6a715db4c9efe00678180f73&type=3#MM_Start_Click");
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .mainmenu-quit {
@@ -51,8 +51,8 @@
     width: 357px;
     height: 216px;
     background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit.png?fileID=2800000&guid=c9f8c9865e298c74f93a02af0eae7bae&type=3#MM_Exit");
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .mainmenu-quit:hover {
@@ -61,8 +61,8 @@
     width: 357px;
     height: 216px;
     background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit.png?fileID=2800000&guid=c9f8c9865e298c74f93a02af0eae7bae&type=3#MM_Exit");
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
     -unity-background-image-tint-color: rgb(225, 225, 225);
 }
 
@@ -72,8 +72,8 @@
     width: 357px;
     height: 216px;
     background-image: url("project://database/Assets/Art/UI/MainMenu/MM_Exit_Click.png?fileID=2800000&guid=28e2e59b57212434d8256ba59b423e8a&type=3#MM_Exit_Click");
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .mainmenu-credits {
@@ -83,8 +83,8 @@
     bottom: 47px;
     right: 299px;
     position: absolute;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .mainmenu-credits:hover {
@@ -94,8 +94,8 @@
     bottom: 47px;
     right: 299px;
     position: absolute;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
     -unity-background-image-tint-color: rgb(225, 225, 225);
 }
 
@@ -106,8 +106,8 @@
     bottom: 47px;
     right: 299px;
     position: absolute;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .mainmenu-settings {
@@ -117,8 +117,8 @@
     bottom: 47px;
     left: 256px;
     position: absolute;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .mainmenu-settings:hover {
@@ -128,8 +128,8 @@
     bottom: 47px;
     left: 256px;
     position: absolute;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
     -unity-background-image-tint-color: rgb(225, 225, 225);
 }
 
@@ -140,8 +140,8 @@
     bottom: 47px;
     left: 256px;
     position: absolute;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .pausemenu-resume {
@@ -157,8 +157,8 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .pausemenu-resume:hover {
@@ -174,9 +174,9 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    scale: 1.1 1.1;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
+    -unity-background-image-tint-color: rgb(225, 225, 225);
 }
 
 .pausemenu-resume:active {
@@ -193,8 +193,8 @@
     margin-bottom: 16px;
     margin-left: 16px;
     scale: 1.1 1.1;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .pausemenu-mainmenu {
@@ -209,8 +209,8 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .pausemenu-mainmenu:hover {
@@ -225,9 +225,9 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    scale: 1.1 1.1;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
+    -unity-background-image-tint-color: rgb(225, 225, 225);
 }
 
 .pausemenu-mainmenu:active {
@@ -243,8 +243,8 @@
     margin-bottom: 16px;
     margin-left: 16px;
     scale: 1.1 1.1;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .pausemenu-quit {
@@ -259,8 +259,8 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .pausemenu-quit:hover {
@@ -275,9 +275,9 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    scale: 1.1 1.1;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
+    -unity-background-image-tint-color: rgb(225, 225, 225);
 }
 
 .pausemenu-quit:active {
@@ -293,8 +293,8 @@
     margin-bottom: 16px;
     margin-left: 16px;
     scale: 1.1 1.1;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .gameover-playagain {
@@ -310,8 +310,8 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
 }
 
 .gameover-playagain:hover {
@@ -327,9 +327,9 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    transition-property: scale;
-    transition-duration: 0.25s;
-    scale: 1.1 1.1;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
+    -unity-background-image-tint-color: rgb(225, 225, 225);
 }
 
 .gameover-playagain:active {
@@ -345,7 +345,7 @@
     margin-right: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
-    transition-property: scale;
-    transition-duration: 0.25s;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.25s;
     scale: 1.1 1.1;
 }

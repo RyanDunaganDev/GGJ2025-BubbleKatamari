@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
 using Unity.Mathematics;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class BK_BubbleSpline : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class BK_BubbleSpline : MonoBehaviour
 
     public void PlaceBubbles()
     {
+#if UNITY_EDITOR
         if (splineContainer == null) { splineContainer = GetComponent<SplineContainer>(); }
         if (bubblePrefab == null) { return; }
         RemoveBubbles();
@@ -52,6 +55,7 @@ public class BK_BubbleSpline : MonoBehaviour
                 splineAnim.MaxSpeed = animSpeed;
             }
         }
+#endif
     }
 
     public void RemoveBubbles()
