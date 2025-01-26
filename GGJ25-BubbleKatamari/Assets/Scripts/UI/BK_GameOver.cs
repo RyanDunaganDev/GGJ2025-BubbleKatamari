@@ -6,6 +6,7 @@ public class BK_GameOver : BK_MasterUI
     #region Variables
 
     private VisualElement root;  // Root visual element of the UI Document
+    private VisualElement titleLogo;
     private Button playagainButton;
     private Button mainmenuButton;
     private Button quitButton;
@@ -24,6 +25,7 @@ public class BK_GameOver : BK_MasterUI
         root = GetComponent<UIDocument>().rootVisualElement;
 
         // Then we get our buttons by querying (that's what the Q() stands for) the root.
+        titleLogo = root.Q<VisualElement>("gameover-logo");
         playagainButton = root.Q<Button>("playagain-button");
         mainmenuButton = root.Q<Button>("mainmenu-button");
         quitButton = root.Q<Button>("quit-button");
@@ -51,6 +53,21 @@ public class BK_GameOver : BK_MasterUI
         UnregisterButtonSFX(playagainButton);
         UnregisterButtonSFX(mainmenuButton);
         UnregisterButtonSFX(quitButton);
+    }
+
+    private void Update()
+    {
+        titleLogo.style.scale = new StyleScale(V2Wobble(0f, 0f, 0.2f));
+        playagainButton.style.scale = new StyleScale(V2Wobble(0.2f, 0.3f));
+        mainmenuButton.style.scale = new StyleScale(V2Wobble(0.4f, 0.6f));
+        quitButton.style.scale = new StyleScale(V2Wobble(0.6f, 0.9f));
+        duckVE.style.scale = new StyleScale(V2Wobble(0.9f, 1.2f));
+
+        titleLogo.style.translate = new StyleTranslate(V2Translate(0.3f, 0.15f, 15f, 10f, 2f));
+        playagainButton.style.translate = new StyleTranslate(V2Translate(2f, 3f, 15f, 10f));
+        mainmenuButton.style.translate = new StyleTranslate(V2Translate(9f, 12f, 15f, 10f));
+        quitButton.style.translate = new StyleTranslate(V2Translate(6f, 9f, 15f, 10f));
+        duckVE.style.translate = new StyleTranslate(V2Translate(4f, 6f, 25f, 15f));
     }
 
     private void Start()

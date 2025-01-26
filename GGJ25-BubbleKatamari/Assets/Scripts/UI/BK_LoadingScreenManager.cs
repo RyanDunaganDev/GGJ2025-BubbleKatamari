@@ -293,7 +293,7 @@ public class BK_LoadingScreenManager : BK_MasterUI
                 counter += Time.deltaTime; // Increment counter used for opacity pulsing
 
                 // When the player presses spacebar
-                if (Keyboard.current.anyKey.wasPressedThisFrame)
+                if (Keyboard.current.anyKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame)
                 {
                     // Allow moving to the next scene once the load is complete and the player presses spacebar
                     //Debug.Log("Asynchronous scene transition can complete!");
