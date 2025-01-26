@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
-public class BK_PauseMenu : MonoBehaviour
+public class BK_PauseMenu : BK_MasterUI
 {
     #region Variables
 
@@ -31,6 +31,22 @@ public class BK_PauseMenu : MonoBehaviour
         resumeButton.RegisterCallback<ClickEvent>(ResumeButtonPressed);
         mainmenuButton.RegisterCallback<ClickEvent>(MainMenuButtonPressed);
         quitButton.RegisterCallback<ClickEvent>(QuitButtonPressed);
+
+        RegisterButtonSFX(resumeButton);
+        RegisterButtonSFX(mainmenuButton);
+        RegisterButtonSFX(quitButton);
+    }
+
+    private void OnDisable()
+    {
+        // As always, when we subscribe to events we must also remember to unsubscribe
+        resumeButton.UnregisterCallback<ClickEvent>(ResumeButtonPressed);
+        mainmenuButton.UnregisterCallback<ClickEvent>(MainMenuButtonPressed);
+        quitButton.UnregisterCallback<ClickEvent>(QuitButtonPressed);
+
+        UnregisterButtonSFX(resumeButton);
+        UnregisterButtonSFX(mainmenuButton);
+        UnregisterButtonSFX(quitButton);
     }
 
     private void Start()
@@ -42,14 +58,6 @@ public class BK_PauseMenu : MonoBehaviour
 
         // Initialize our pause menu to not be visible, since the game is not paused when a level loads
         ReceivedOnGameResumed();
-    }
-
-    private void OnDisable()
-    {
-        // As always, when we subscribe to events we must also remember to unsubscribe
-        resumeButton.UnregisterCallback<ClickEvent>(ResumeButtonPressed);
-        mainmenuButton.UnregisterCallback<ClickEvent>(MainMenuButtonPressed);
-        quitButton.UnregisterCallback<ClickEvent>(QuitButtonPressed);
     }
 
     private void OnDestroy()

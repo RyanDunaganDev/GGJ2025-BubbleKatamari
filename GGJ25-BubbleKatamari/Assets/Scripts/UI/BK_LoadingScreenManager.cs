@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class BK_LoadingScreenManager : MonoBehaviour
+public class BK_LoadingScreenManager : BK_MasterUI
 {
     #region Variables
 
@@ -171,6 +171,9 @@ public class BK_LoadingScreenManager : MonoBehaviour
         LoadingIconVisibility(visible);
         background.style.opacity = new StyleFloat(visible ? 1f : 0f);
         loadingScreenVisible = visible;
+
+        if (visible) { background.pickingMode = PickingMode.Position; }
+        else { background.pickingMode = PickingMode.Ignore; }
     }
 
     /// <summary>

@@ -48,8 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxAudioSource: {fileID: 4863182064434521872}
   bgmAudioSource: {fileID: 7097787177236951186}
-  volume: {x: 1, y: 2}
+  volume: {x: 5, y: 6}
   pitch: {x: 0.6, y: 1.4}
+  bubblePopSounds:
+  - {fileID: 8300000, guid: baa5da9a3499b2a43902556326a2001b, type: 3}
 --- !u!82 &4863182064434521872
 AudioSource:
   m_ObjectHideFlags: 0

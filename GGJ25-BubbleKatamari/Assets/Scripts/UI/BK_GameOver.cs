@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BK_GameOver : MonoBehaviour
+public class BK_GameOver : BK_MasterUI
 {
     #region Variables
 
@@ -35,6 +35,10 @@ public class BK_GameOver : MonoBehaviour
         playagainButton.RegisterCallback<ClickEvent>(PlayAgainButtonPressed);
         mainmenuButton.RegisterCallback<ClickEvent>(MainMenuButtonPressed);
         quitButton.RegisterCallback<ClickEvent>(QuitButtonPressed);
+
+        RegisterButtonSFX(playagainButton);
+        RegisterButtonSFX(mainmenuButton);
+        RegisterButtonSFX(quitButton);
     }
 
     private void OnDisable()
@@ -43,6 +47,10 @@ public class BK_GameOver : MonoBehaviour
         playagainButton.UnregisterCallback<ClickEvent>(PlayAgainButtonPressed);
         mainmenuButton.UnregisterCallback<ClickEvent>(MainMenuButtonPressed);
         quitButton.UnregisterCallback<ClickEvent>(QuitButtonPressed);
+
+        UnregisterButtonSFX(playagainButton);
+        UnregisterButtonSFX(mainmenuButton);
+        UnregisterButtonSFX(quitButton);
     }
 
     private void Start()

@@ -1,16 +1,23 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BK_MasterUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected void PlayBubblePopSFX(ClickEvent evt) { PlayBubblePopSFX(); }
+    protected void PlayBubblePopSFX(MouseOverEvent evt) { PlayBubblePopSFX(); }
+    protected void PlayBubblePopSFX()
     {
-        
+        BK_AudioManager.Instance.PlayBubblePopOneshot();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void RegisterButtonSFX(Button btn)
     {
-        
+        btn.RegisterCallback<ClickEvent>(PlayBubblePopSFX);
+        btn.RegisterCallback<MouseOverEvent>(PlayBubblePopSFX);
+    }
+    protected void UnregisterButtonSFX(Button btn)
+    {
+        btn.UnregisterCallback<ClickEvent>(PlayBubblePopSFX);
+        btn.UnregisterCallback<MouseOverEvent>(PlayBubblePopSFX);
     }
 }

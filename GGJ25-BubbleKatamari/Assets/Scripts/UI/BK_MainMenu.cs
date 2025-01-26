@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using Unity.Mathematics;
 
-public class BK_MainMenu : MonoBehaviour
+public class BK_MainMenu : BK_MasterUI
 {
     private VisualElement root;
 
@@ -31,14 +31,24 @@ public class BK_MainMenu : MonoBehaviour
         quitButton.RegisterCallback<ClickEvent>(QuitGame);
         creditsButton.RegisterCallback<ClickEvent>(ToggleCredits);
         settingsButton.RegisterCallback<ClickEvent>(ToggleSettings);
+
+        RegisterButtonSFX(startButton);
+        RegisterButtonSFX(quitButton);
+        RegisterButtonSFX(creditsButton);
+        RegisterButtonSFX(settingsButton);
     }
 
     private void OnDisable()
     {
         startButton.UnregisterCallback<ClickEvent>(StartGame);
         quitButton.UnregisterCallback<ClickEvent>(QuitGame);
-        //creditsButton.UnregisterCallback<ClickEvent>(ToggleCredits);
-        //settingsButton.UnregisterCallback<ClickEvent>(ToggleSettings);
+        creditsButton.UnregisterCallback<ClickEvent>(ToggleCredits);
+        settingsButton.UnregisterCallback<ClickEvent>(ToggleSettings);
+
+        UnregisterButtonSFX(startButton);
+        UnregisterButtonSFX(quitButton);
+        UnregisterButtonSFX(creditsButton);
+        UnregisterButtonSFX(settingsButton);
     }
 
     private void Update()
