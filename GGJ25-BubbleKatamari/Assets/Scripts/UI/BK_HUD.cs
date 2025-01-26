@@ -3,7 +3,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BK_HUD : MonoBehaviour
+public class BK_HUD : BK_MasterUI
 {
     [SerializeField] private string areaName;
 

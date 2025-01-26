@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Unity.Mathematics;
@@ -72,6 +73,8 @@ public class BK_BubbleEnemy : MonoBehaviour
 
     public IEnumerator BubbleDeath()
     {
+        BK_AudioManager.Instance.PlayBubblePopOneshot();
+        
         float count = 0f;
 
         while (count < duration)

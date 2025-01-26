@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Splines;
 using Unity.Mathematics;
 using static UnityEditor.PlayerSettings;
+using UnityEditor;
 
 public class BK_BubbleSpline : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class BK_BubbleSpline : MonoBehaviour
     [SerializeField] private int numBubbles = 10;
     [SerializeField] private AnimationCurve bubblePositionDistribution;
     [SerializeField] private AnimationCurve bubbleSizeDistribution;
+    [SerializeField] private AnimationCurve bubbleAnimOffsetDistribution;
+    
+    [SerializeField] private bool animated = false;
+    [SerializeField] private float animSpeed = 1f;
 
     public void PlaceBubbles()
     {
@@ -27,10 +32,22 @@ public class BK_BubbleSpline : MonoBehaviour
 
             Debug.Log($"Spawn: {i}, {pos}, {splinePos}");
 
-            GameObject newBubble = Instantiate(bubblePrefab, transform);
+            //GameObject newBubble = Instantiate(bubblePrefab, transform);
+            GameObject newBubble = PrefabUtility.InstantiatePrefab(bubblePrefab, transform) as GameObject;
             newBubble.transform.localPosition = splinePos;
             BK_BubbleEnemy bubbleEnemy = newBubble.GetComponent<BK_BubbleEnemy>();
             bubbleEnemy.SetScaleFactor(bubbleSizeDistribution.Evaluate(pos));
+
+            if (animated)
+            {
+                SplineAnimate splineAnim = newBubble.AddComponent<SplineAnimate>();
+
+                splineAnim.Container = splineContainer;
+                splineAnim.Alignment = SplineAnimate.AlignmentMode.None;
+                splineAnim.StartOffset = bubbleAnimOffsetDistribution.Evaluate(pos);
+                splineAnim.AnimationMethod = SplineAnimate.Method.Speed;
+                splineAnim.MaxSpeed = animSpeed;
+            }
         }
     }
 

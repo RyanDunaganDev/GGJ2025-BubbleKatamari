@@ -156,3 +156,5 @@ MonoBehaviour:
   sphereCollider: {fileID: 6086701903343961027}
   bubbleMesh: {fileID: 7177655879654384887}
   duration: 0.1
+  bubblePopSounds:
+  - {fileID: 8300000, guid: baa5da9a3499b2a43902556326a2001b, type: 3}
