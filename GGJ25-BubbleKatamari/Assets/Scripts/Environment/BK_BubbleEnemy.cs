@@ -45,6 +45,9 @@ public class BK_BubbleEnemy : MonoBehaviour
                 {
                     // Player loses
                     Destroy(bubbleCharacter.gameObject);
+
+                    // Player lost
+                    BK_GameManager.Instance.PlayerLost();
                 }
             }
         }

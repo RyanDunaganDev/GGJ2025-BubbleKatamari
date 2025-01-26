@@ -1,0 +1,21 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/UI/BK_Styles.uss?fileID=7433441132597879392&amp;guid=f60ddf02dc9c69f4fa538b2b4214a328&amp;type=3#BK_Styles" />
+    <engine:VisualElement name="time-container" style="position: absolute; top: 16px; left: -400px; width: 800px; height: 400px; background-image: url(&quot;project://database/Assets/Art/UI/HUD/HUD_Bubble.png?fileID=2800000&amp;guid=7e438c3b3bad9c44d8880432cc3e251f&amp;type=3#HUD_Bubble&quot;); justify-content: center; align-items: flex-end;">
+        <engine:VisualElement style="flex-grow: 1; width: 300px; right: 100px;">
+            <engine:Label text="Time" name="time-title" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); flex-grow: 1; -unity-text-align: lower-center;" />
+            <engine:VisualElement style="flex-grow: 1.5; flex-direction: row; justify-content: center;">
+                <engine:Label text="00" name="time-label-minutes" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); -unity-text-align: upper-center; width: 48px; letter-spacing: 3px;" />
+                <engine:Label text=":" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); -unity-text-align: upper-center; width: 15px;" />
+                <engine:Label text="00" name="time-label-seconds" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); -unity-text-align: upper-center; width: 48px; letter-spacing: 3px;" />
+                <engine:Label text=":" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); -unity-text-align: upper-center; width: 15px;" />
+                <engine:Label text="00" name="time-label-ms" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); -unity-text-align: upper-center; width: 48px; letter-spacing: 3px;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="score-container" style="position: absolute; top: 51px; left: auto; right: -400px; bottom: auto; width: 800px; height: 400px; background-image: url(&quot;project://database/Assets/Art/UI/HUD/HUD_Bubble.png?fileID=2800000&amp;guid=7e438c3b3bad9c44d8880432cc3e251f&amp;type=3#HUD_Bubble&quot;); justify-content: center; align-items: flex-start;">
+        <engine:VisualElement style="flex-grow: 1; width: 300px; bottom: 35px; left: 100px;">
+            <engine:Label text="Score" name="score-title" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); flex-grow: 1; -unity-text-align: lower-center;" />
+            <engine:Label text="0" name="score-label" style="font-size: 48px; -unity-font-definition: url(&quot;project://database/Assets/Art/UI/HUD/Bubblingle_newfont-Regular.ttf?fileID=12800000&amp;guid=1f8919fb8465f3b4c99727a547d35b9c&amp;type=3#Bubblingle_newfont-Regular&quot;); flex-grow: 1.5; -unity-text-align: upper-center;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

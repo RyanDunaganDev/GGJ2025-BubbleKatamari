@@ -39,7 +39,7 @@ public class BK_MainMenu : MonoBehaviour
     private void StartGame(ClickEvent evt)
     {
         Debug.Log("Starting the game!");
-        BK_GameManager.Instance.LoadScene("Level1Scene");
+        BK_GameManager.Instance.LoadScene(BK_Globals.Level1SceneName);
     }
 
     private void QuitGame(ClickEvent evt)
