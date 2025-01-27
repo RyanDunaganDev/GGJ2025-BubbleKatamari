@@ -114,8 +114,8 @@ public class BK_LoadingScreenManager : BK_MasterUI
 
         // Since the loading screen in on by default,
         // hide it when the scene is loaded
-        //StartCoroutine(HideLoadingScreen());
-        LoadingScreenVisibilityInstant(false);
+        StartCoroutine(HideLoadingScreen());
+        //LoadingScreenVisibilityInstant(false);
 
     }
 
